@@ -1,21 +1,23 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = if params[:search]
-        #Project.where("name ILIKE ?", "%#{params[:search]}%")
-        Project.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
-      else     
-        Project.all
-      end
+    if params[:search]
+      #Project.where("name ILIKE ?", "%#{params[:search]}%")
+      @projects = Project.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    else     
+      @projects = Project.all.page params[:page]
+    end
 
-      respond_to do |format|
-        format.html do
-          if request.xhr?
-            render @projects
-          end
+    # @projects = @projects.page params[:page]
+
+    respond_to do |format|
+      format.html do
+        if request.xhr?
+          render @projects
         end
-        format.js
       end
+      format.js
+    end
   end
 
   def new
