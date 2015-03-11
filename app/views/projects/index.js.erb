@@ -1,1 +1,1 @@
-$('#projects').html("<%= j(render @projects) %>");
+$('#projects').html("<%= j(render @projects.page params[:page]) %>");
