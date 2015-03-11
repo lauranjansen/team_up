@@ -26,6 +26,8 @@ gem 'kaminari'
 gem 'carrierwave'
 # Use Foundation framework
 gem 'foundation-rails'
+# Use Mini-magick
+gem 'rmagick'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
