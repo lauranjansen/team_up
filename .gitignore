@@ -20,4 +20,4 @@
 /test/*
 
 # Ignore uploads
-# /public/uploads/*
+/public/uploads/*
