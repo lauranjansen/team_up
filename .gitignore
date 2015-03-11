@@ -16,5 +16,8 @@
 !/log/.keep
 /tmp
 
-#ignore test (for now)
+# Ignore test (for now)
 /test/*
+
+# Ignore uploads
+/public/uploads/*
