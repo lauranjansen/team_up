@@ -1,0 +1,17 @@
+<h1> All Projects </h1>
+<div id="search_bar">
+
+<h3> Search </h3>
+<%= form_tag projects_path, id: 'search_form', method: :get do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag 'Search', :class => "button" %>
+<% end %>
+</div>
+
+<div id="projects">
+<%=render @projects %>
+</div>
+
+<nav>
+<%= link_to "Add a Project.", new_project_path %>
+</nav>

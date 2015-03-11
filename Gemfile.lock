@@ -197,7 +197,6 @@ DEPENDENCIES
   best_errors
   carrierwave
   cocoon
-  coffee-rails (~> 4.1.0)
   favorite_things
   foundation-rails
   jbuilder (~> 2.0)
