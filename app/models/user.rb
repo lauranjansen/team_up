@@ -9,4 +9,11 @@ class User < ActiveRecord::Base
   has_many :requested_positions, through: :position_requests, class_name: 'Position'
   has_many :positions
   has_many :team_projects, through: :positions, class_name: 'Project'
+
+  validates :password, length: { minimum: 3 }
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
+
+  validates :email, uniqueness: true
+  
 end
