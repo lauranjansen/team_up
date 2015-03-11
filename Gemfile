@@ -18,11 +18,14 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use sorcery
 gem 'sorcery'
-
+# Use cocoon for nested resources
 gem 'cocoon'
-
+# Use Kaminari for pagination
 gem 'kaminari'
+# Use carrierwave for file uploads 
 gem 'carrierwave'
+# Use Foundation framework
+gem 'foundation-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -43,8 +46,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'pry-rails'
-  gem 'quiet_assets'
+  gem 'favorite_things'
   gem 'best_errors'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

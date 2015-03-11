@@ -37,6 +37,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     best_errors (0.1.4)
       better_errors (~> 2.1)
@@ -63,14 +64,25 @@ GEM
       execjs
     coffee-script-source (1.9.1)
     debug_inspector (0.0.2)
+    did_you_mean (0.9.6)
+      interception
     erubis (2.7.0)
     execjs (2.4.0)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
+    favorite_things (0.1.6)
+      awesome_print
+      did_you_mean
+      pry-rails
+      quiet_assets
+    foundation-rails (5.5.1.0)
+      railties (>= 3.1.0)
+      sass (>= 3.3.0, < 3.5)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
     hike (1.2.3)
     i18n (0.7.0)
+    interception (0.5)
     jbuilder (2.2.11)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -186,12 +198,12 @@ DEPENDENCIES
   carrierwave
   cocoon
   coffee-rails (~> 4.1.0)
+  favorite_things
+  foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
   pg
-  pry-rails
-  quiet_assets
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
