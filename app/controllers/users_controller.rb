@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			user_session[:user_id] = @user.id
+			session[:user_id] = @user.id
 			redirect_to user_path(@user), notice: "Welcome to Team Up!"
 		else
 			render :new
