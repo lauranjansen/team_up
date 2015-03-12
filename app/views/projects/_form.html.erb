@@ -26,6 +26,15 @@
     <%= f.label :location %><br>
     <%= f.text_field :location %> 
   </div>
+      <h3>Positions</h3>
+      <div id = "Positions">
+        <%= f.fields_for :positions do |position| %>
+        <%= render 'position_fields', :f => position %>
+      </div>
+      <div class="links">
+        <%= link_to_add_association 'Add Position', f, :positions %>
+      </div>
+      <% end %>
   <div>
     <%= f.submit({class: :button})%>
   </div>

@@ -1,0 +1,13 @@
+<div id='nested-fields'>
+  <div id='field'>
+    <%= f.label :description %>
+    <br>
+    <%= f.text_field :description %>
+  </div>
+  <div id='field'>
+    <%= f.label :role_id %>
+    <%# f.select "role_id", options_from_collection_for_select(@roles, "id", "name") %>
+    <%= f.collection_select(:role_id, Role.all, :id, :name) %>
+  </div>
+   <%# link_to_remove_association "remove task", f %>
+</div>
