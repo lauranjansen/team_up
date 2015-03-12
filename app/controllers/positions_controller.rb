@@ -24,6 +24,8 @@ class PositionsController < ApplicationController
   end
 
   def destroy
+    @position = Position.find(params[:id])
+    @position.destroy
   end
 
   private
