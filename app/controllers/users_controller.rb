@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	before_filter :load_role
 
 	def new
 		@user = User.new
@@ -21,7 +22,10 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		params.require(:user).permit(:email, :first_name, :last_name, :bio, :location, :password, :password_confirmation, image_attributes: [:picture], skills_attributes: [:id, :name, :done, :_destroy])
+		params.require(:user).permit(:email, :first_name, :last_name, :bio, :location, :password, :password_confirmation, image_attributes: [:picture], skills_attributes: [:id, :name, :done, :_destroy], roles_attributes: [:role_id, :name, :done, :_destroy])
 	end
 
+	def load_role
+		@roles = Role.all
+	end
 end
