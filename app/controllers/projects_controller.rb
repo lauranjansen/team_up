@@ -1,5 +1,4 @@
 class ProjectsController < ApplicationController
-  # before_filter :load_roles
 
   def index
     if params[:search]
@@ -75,9 +74,5 @@ class ProjectsController < ApplicationController
         :_destroy
       ]
       )
-  end
-
-  def load_roles
-    @roles = Role.all
   end
 end
