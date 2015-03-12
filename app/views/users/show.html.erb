@@ -7,3 +7,7 @@
 
 
 <%= image_tag(@user.image.picture) %>
+	<b>Skills:</b>
+<% @user.skills.each do |skill| %>
+	<%= skill.name %>
+<% end %>
