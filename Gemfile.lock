@@ -68,6 +68,8 @@ GEM
       interception
     erubis (2.7.0)
     execjs (2.4.0)
+    faker (1.4.3)
+      i18n (~> 0.5)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     favorite_things (0.1.6)
@@ -198,6 +200,7 @@ DEPENDENCIES
   best_errors
   carrierwave
   cocoon
+  faker
   favorite_things
   foundation-rails
   jbuilder (~> 2.0)
