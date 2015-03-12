@@ -1,5 +1,15 @@
 @import "foundation_and_overrides";
 
-input {
+.field {
 	width: 200px;
+	float: left;
+}
+
+.prefix {
+	text-align: vertical;
+}
+
+.bio-text {
+	height: 90px;
+	resize: none;
 }

@@ -11,39 +11,81 @@
 			</ul>
 		</div>
 	<% end %>
-	<div class="field">
-		<%= f.label :email %><br/>
-		<%= f.text_field :email %>
+	<div class="row">
+		<div class="medium-6 columns">
+      <div class="row collapse">
+        <div class="small-4 columns">
+          <%= f.label(:first_name, {class: :prefix}) %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.text_field(:first_name, {placeholder: "Tester"}) %>
+        </div>
+      </div>
+    	<div class="row collapse">
+        <div class="small-4 columns">
+          <%= f.label(:last_name, {class: :prefix}) %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.text_field(:last_name, {placeholder: "McTest"}) %>
+        </div>
+      </div>
+      <div class="row collapse">
+        <div class="small-4 columns">
+          <%= f.label(:email, {class: :prefix}) %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.text_field(:email, {placeholder: "tester@mctest.com"}) %>
+        </div>
+      </div>
+    </div>
+    <div class="medium-6 columns">
+      <div class="row collapse">
+        <div class="small-4 columns">
+          <%= f.label(:location, {class: :prefix}) %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.text_field(:location, {placeholder: "Toronto"}) %>
+        </div>
+      </div>
+    	<div class="row collapse">
+        <div class="small-4 columns">
+          <%= f.label(:bio, {class: :prefix}) %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.text_area(:bio, {placeholder: "Tell us a little about yourself", class: "bio-text"}) %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  	<div class="medium-12 columns">
+			<%= f.label "Profile picture" %>
+			<%= f.file_field "image_attributes[picture]" %>
+		</div>
 	</div>
-	<div class="field">
-		<%= f.label :first_name %><br/>
-		<%= f.text_field :first_name %>
-	</div>
-	<div class="field">
-		<%= f.label :last_name %><br/>
-		<%= f.text_field :last_name %>
-	</div>
-	<div class="field">
-		<%= f.label :location %><br/>
-		<%= f.text_field :location %>
-	</div>
-	<div class="field">
-		<%= f.label :bio %><br/>
-		<%= f.text_area :bio %>
-	</div>
-	<div class="field">
-		<%= f.label :password %><br/>
-		<%= f.password_field :password %>
-	</div>
-	<div class="field">
-		<%= f.label :password_confirmation %><br/>
-		<%= f.password_field :password_confirmation %>
-	</div>
-	<div class="field">
-		<%= f.label "image_attributes" %>
-		<%= f.file_field "image_attributes[picture]" %>
-	</div>
+  <div class="row">
+		<div class="medium-6 columns">
+      <div class="row collapse">
+        <div class="small-4 columns">
+          <%= f.label(:password, {class: :prefix}) %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.password_field(:password, {placeholder: "********"}) %>
+        </div>
+      </div>
+    </div>
+    <div class="medium-6 columns">
+    	<div class="row collapse">
+        <div class="small-4 columns">
+          <%= f.label(:password_confirmation, {class: :prefix}) %>
+        </div>
+        <div class="small-8 columns">
+          <%= f.password_field(:password_confirmation, {placeholder: "********"}) %>
+        </div>
+      </div>
+    </div>
+  </div>
 	<div class="actions">
-		<%= f.submit %>
+		<%= f.submit ({class: :button}) %>
 	</div>
 <% end %>
