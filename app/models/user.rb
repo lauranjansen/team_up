@@ -18,5 +18,6 @@ class User < ActiveRecord::Base
 
   accepts_nested_attributes_for :image
   accepts_nested_attributes_for :skills, :reject_if => :all_blank, :allow_destroy => true
-  
+  accepts_nested_attributes_for :roles, :reject_if => :all_blank, :allow_destroy => true
+
 end
