@@ -85,13 +85,13 @@
       </div>
     </div>
   </div>
-  <p>Skills</p>
-    <div class="skills-form">
+  <h3>Skills</h3>
+    <div class="actions">
     <%= f.fields_for :skills do |skill| %>
       <%= render "skill_fields", f: skill %>    
     <% end %>
     <div class="links">
-    <%= link_to_add_association "Add Skill", f, :skills %>
+    <%= link_to_add_association "Add Skill", f, :skills, ({class: "button round success small"}) %>
     </div>
   </div>
 	<div class="actions">

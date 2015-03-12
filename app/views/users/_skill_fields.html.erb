@@ -1,7 +1,8 @@
 <div class="nested-fields">
-	<div>
+	<div class="row">
 		<%= f.label "Skill" %>
+		<div class="small-8 columns">
 		<%= f.text_field :name %>
 	</div>	
-	<%= link_to_remove_association "Remove", f %>
+	<%= link_to_remove_association "Remove", f, ({class: "button round alert small"}) %>
 </div>
