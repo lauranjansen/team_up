@@ -1,11 +1,18 @@
 class UsersController < ApplicationController
+	before_filter :load_role
 
 	def new
 		@user = User.new
 	end
 
 	def create
-		@user = User.new(user_params)
+		@user = User.new(user_params.except(:roles_attributes))
+
+		user_params[:roles_attributes].each do |id, role_attrs|
+			role = Role.find_by(id: role_attrs['id'])
+			@user.roles << role
+		end
+
 		if @user.save
 			session[:user_id] = @user.id
 			redirect_to user_path(@user), notice: "Welcome to Team Up!"
@@ -31,14 +38,23 @@ class UsersController < ApplicationController
 			:password_confirmation,
 			image_attributes: [
 				:picture
-			], 
+			],
 			skills_attributes: [
-				:id, 
-				:name, 
-				:done, 
+				:id,
+				:name,
+				:done,
+				:_destroy
+			],
+			roles_attributes: [
+				:id,
+				:name,
+				:done,
 				:_destroy
 			]
 		)
 	end
 
+	def load_role
+		@roles = Role.all
+	end
 end

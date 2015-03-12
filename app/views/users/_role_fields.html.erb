@@ -1,0 +1,7 @@
+<div id='nested-fields'>
+  <div id='field'>
+    <%= f.label :id %>
+    <%= f.collection_select(:id, Role.all, :id, :name) %>
+  </div>
+   <%= link_to_remove_association "Remove", f, ({class: "button round alert small"}) %>
+</div>

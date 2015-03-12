@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   accepts_nested_attributes_for :image
-
+  accepts_nested_attributes_for :skills, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :roles, :reject_if => :all_blank, :allow_destroy => true
 
   def profile_picture(*file_size)
     if (self.image == nil)
@@ -34,5 +35,4 @@ class User < ActiveRecord::Base
       end
     end
   end
-  
 end

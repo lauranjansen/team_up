@@ -1,9 +1,19 @@
 <h2>User Profile: <%= @user.first_name %> <%= @user.last_name %></h2>
 
-<%= @user.bio %>
-<%= @user.location %>
+<%= @user.bio %><br>
+<%= @user.location %><br>
 
-<%= @user.email %>
+<%= @user.email %><br>
 
 
-<%= image_tag(@user.profile_picture) %>
+<%= image_tag(@user.profile_picture) %><br>
+
+	<b>Skills:</b>
+<% @user.skills.each do |skill| %>
+	<%= skill.name %>
+<% end %><br>
+
+<b>Roles:</b>
+<% @user.roles.each do |role| %>
+	<%= role.name %>
+<% end %><br>
