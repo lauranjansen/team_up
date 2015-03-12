@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  # before_filter :load_roles
 
   def index
     if params[:search]
@@ -22,6 +23,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.positions.build
   end
 
   def show
@@ -62,6 +64,20 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :status, :location)
+    params.require(:project).permit(
+      :name, 
+      :description, 
+      :status, 
+      :location,
+      positions_attributes: [
+        :description,
+        :role_id,
+        :_destroy
+      ]
+      )
+  end
+
+  def load_roles
+    @roles = Role.all
   end
 end
