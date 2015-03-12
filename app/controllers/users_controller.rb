@@ -50,7 +50,8 @@ class UsersController < ApplicationController
 				:name,
 				:done,
 				:_destroy
-			])
+			]
+		)
 	end
 
 	def load_role

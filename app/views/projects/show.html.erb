@@ -1,7 +1,23 @@
 <h1><%= @project.name %></h1>
 
-<%= @project.description %>
-<%= @project.status %>
-<%= @project.location %>
+<div class="row">
+	<div class="medium-6 columns">
+		<%= @project.description %>
+	</div>
+</div>
+<div class="row">
+	<div class="medium-6 columns">
+		<%= @project.status %>
+	</div>
+</div>
+<div class="row">
+	<div class="medium-6 columns">
+		<%= @project.location %>
+	</div>
+</div>
 
-<%= link_to "Back to Projects", projects_path %>
+<div class="row">
+	<div class="medium-6 columns">
+		<%= link_to "Back to Projects", projects_path %>
+	</div>
+</div>

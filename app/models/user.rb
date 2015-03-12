@@ -20,4 +20,19 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :skills, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :roles, :reject_if => :all_blank, :allow_destroy => true
 
+  def profile_picture(*file_size)
+    if (self.image == nil)
+      if file_size.empty?
+        "/fallback/picture.jpg"
+      else
+        "/fallback/" + [file_size, "picture.jpg"].compact.join('_')
+      end
+    else
+      if file_size.empty?
+        self.image.picture
+      else
+        "/uploads/image/picture/#{self.id}/#{file_size}_picture.jpg"
+      end
+    end
+  end
 end
