@@ -17,5 +17,22 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   accepts_nested_attributes_for :image
+
+
+  def profile_picture(*file_size)
+    if (self.image == nil)
+      if file_size.empty?
+        "/fallback/picture.jpg"
+      else
+        "/fallback/" + [file_size, "picture.jpg"].compact.join('_')
+      end
+    else
+      if file_size.empty?
+        self.image.picture
+      else
+        "/uploads/image/picture/#{self.id}/#{file_size}_picture.jpg"
+      end
+    end
+  end
   
 end
