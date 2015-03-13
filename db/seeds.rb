@@ -20,6 +20,9 @@ Role.create!(name: "Operations")
 Role.create!(name: "General")
 Role.create!(name: "Advisor")
 Role.create!(name: "QA/Tester")
+9.times do
+  print "|"
+end
 
 puts "\nCreating users..."
 10.times do
@@ -46,3 +49,25 @@ puts "\nCreating projects..."
   )
   print "|"
 end
+
+puts "\nCreating positions..."
+projects = Project.all
+projects.each do |project|
+  5.times do
+    Position.create!(
+      description: Faker::Lorem.paragraph,
+      role_id: Role.all.sample.id,
+      project_id: project.id
+    )
+    print "|"
+  end
+end
+
+# positions = Position.all
+# positions.each do |position|
+#   if rand(2)
+    
+#   else
+
+#   end
+# end
