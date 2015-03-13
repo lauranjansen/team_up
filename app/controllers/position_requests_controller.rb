@@ -1,18 +1,24 @@
 class PositionRequestsController < ApplicationController
+  before_filter :load_project
 
-    def new
+  def new
     @positionrequest = PositionRequest.new
   end
 
   def create 
-    @positionrequest = PositionRequest.new(positionrequest_params)
+    @position_request = @project.position_requests.build(position_request_params)
+    @position_request.user = current_user
     if save
       redirect_to projects_path
     end
   end
 
   private
-  def positionrequest_params
-    params.require(:positionrequest).permit(:user_id, :position_id)
+  def position_request_params
+    params.require(:position_request).permit(:position_id, :project_id)
+  end
+
+  def load_project
+    @project = Project.find(params[:project_id])
   end
 end
