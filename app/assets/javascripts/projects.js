@@ -16,9 +16,9 @@ $(document).ready(function() {
       reverse: true
     });
 
-    // $('.back').on('click', function(e){
-    //   form = $(e.currentTarget).find('.position-form');
-    //   form.submit();
-    //   });
+    $('.back').on('click', function(e){
+      form = $(e.currentTarget).find('.position-form');
+      form.submit();
+    });
 
   });

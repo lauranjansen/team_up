@@ -8,10 +8,9 @@
   </div>
   <div class="back">
     <h3>Fill this Position</h3>
-    <% form_tag position_request_path, method: 'post', class: "position-form" do %>
+    <%= form_tag position_requests_path, method: 'post', class: "position-form" do %>
+      <% hidden_field_tag 'project_id', @project.id %>
       <% hidden_field_tag 'position', positions.id %>
-      <% hidden_field_tag 'user', current_user.id %>
-      <% submit_tag 'Fill' %>
     <% end %>
   </div>
 </div>
