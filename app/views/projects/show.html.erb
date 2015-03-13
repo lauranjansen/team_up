@@ -1,20 +1,25 @@
 <h1><%= @project.name %></h1>
-
 <div class="row">
 	<div class="medium-6 columns">
+	<h3> Location </h3>
 		<%= @project.description %>
 	</div>
 </div>
 <div class="row">
 	<div class="medium-6 columns">
+	<h3> Status </h3>
 		<%= @project.status %>
 	</div>
 </div>
 <div class="row">
 	<div class="medium-6 columns">
+	<h3> Location </h3>
 		<%= @project.location %>
 	</div>
 </div>
+	<h2> Open Positions </h2>
+<%= render partial: 'positions', collection: @project.positions %>
+
 
 <div class="row">
 	<div class="medium-6 columns">
