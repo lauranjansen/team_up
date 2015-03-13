@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
       if file_size.empty?
         self.image.picture
       else
-        "/uploads/image/picture/#{self.id}/#{file_size}_picture.jpg"
+        "/uploads/image/picture/#{self.image.id}/" + [file_size, "picture.jpg"].compact.join('_')
       end
     end
   end
