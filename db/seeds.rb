@@ -24,44 +24,44 @@ Role.create!(name: "QA/Tester")
   print "|"
 end
 
-puts "\nCreating users..."
-10.times do
-  User.create!(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: Faker::Internet.email,
-    location: %w{ Toronto Montreal Vancouver}.sample,
-    bio: Faker::Lorem.paragraph,
-    password: "test",
-    password_confirmation: "test"
-  )
-  print "|"
-end
+# puts "\nCreating users..."
+# 10.times do
+#   User.create!(
+#     first_name: Faker::Name.first_name,
+#     last_name: Faker::Name.last_name,
+#     email: Faker::Internet.email,
+#     location: %w{ Toronto Montreal Vancouver}.sample,
+#     bio: Faker::Lorem.paragraph,
+#     password: "test",
+#     password_confirmation: "test"
+#   )
+#   print "|"
+# end
 
-puts "\nCreating projects..."
-20.times do
-  Project.create!(
-    name: Faker::Commerce.product_name,
-    description: Faker::Lorem.paragraph,
-    status: %w{ open in_progress finished }.sample,
-    location: %w{ Toronto Montreal Vancouver}.sample,
-    owner_id: User.all.sample.id
-  )
-  print "|"
-end
+# puts "\nCreating projects..."
+# 20.times do
+#   Project.create!(
+#     name: Faker::Commerce.product_name,
+#     description: Faker::Lorem.paragraph,
+#     status: %w{ open in_progress finished }.sample,
+#     location: %w{ Toronto Montreal Vancouver}.sample,
+#     owner_id: User.all.sample.id
+#   )
+#   print "|"
+# end
 
-puts "\nCreating positions..."
-projects = Project.all
-projects.each do |project|
-  5.times do
-    Position.create!(
-      description: Faker::Lorem.paragraph,
-      role_id: Role.all.sample.id,
-      project_id: project.id
-    )
-    print "|"
-  end
-end
+# puts "\nCreating positions..."
+# projects = Project.all
+# projects.each do |project|
+#   5.times do
+#     Position.create!(
+#       description: Faker::Lorem.paragraph,
+#       role_id: Role.all.sample.id,
+#       project_id: project.id
+#     )
+#     print "|"
+#   end
+# end
 
 # positions = Position.all
 # positions.each do |position|

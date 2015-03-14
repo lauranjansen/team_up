@@ -7,7 +7,7 @@ class PositionRequestsController < ApplicationController
 
   def create 
     @position_request = @project.position_requests.build(position_request_params)
-    @position_request.applicant_id = current_user
+    @position_request.applicant_id = current_user.id
     if @position_request.save
       redirect_to projects_path
     end
