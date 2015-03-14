@@ -8,12 +8,15 @@
 
 <%= image_tag(@user.profile_picture) %><br>
 
-	<b>Skills:</b>
+
+<b>Skills:</b>
 <% @user.skills.each do |skill| %>
 	<%= skill.name %>
 <% end %><br>
+
 
 <b>Roles:</b>
 <% @user.roles.each do |role| %>
 	<%= role.name %>
 <% end %><br>
+
