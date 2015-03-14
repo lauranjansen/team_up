@@ -17,6 +17,12 @@
 		<%= @project.location %>
 	</div>
 </div>
+<div class="row">
+	<div class="medium-6 columns">
+	<h3> Creator </h3>
+		 <%= @project.owner.first_name %>
+	</div>
+</div>
 	<h2> Open Positions </h2>
 <%= render partial: 'positions', collection: @project.positions %>
 
