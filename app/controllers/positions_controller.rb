@@ -20,7 +20,14 @@ class PositionsController < ApplicationController
   def edit
   end
 
-  def update
+  def update    
+    @position = @project.positions.find(params[:id])
+
+    if @position.update_attributes(position_params)
+      redirect_to project_path(@project.id)
+    else
+      render projects_path
+    end
   end
 
   def destroy
