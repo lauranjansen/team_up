@@ -20,7 +20,12 @@
   </div>
   <div>
     <%= f.label :status %><br>
-    <%= f.text_field :status %> 
+    <select name="@project[:status]">
+      <option>Please select</option>
+      <option>Open</option>
+      <option>In Progress</option>
+      <option>Finished</option>
+    </select>
   </div>
   <div>
     <%= f.label :location %><br>
