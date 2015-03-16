@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   root "projects#index"
 
+  get '/users/import' => 'users#import', as: :import_user
+
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create, :index, :show]
 
