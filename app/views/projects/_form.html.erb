@@ -20,12 +20,7 @@
   </div>
   <div>
     <%= f.label :status %><br>
-    <select name="@project[:status]">
-      <option>Please select</option>
-      <option>Open</option>
-      <option>In Progress</option>
-      <option>Finished</option>
-    </select>
+    <%= select(:project, :status, options_for_select(['Open', 'In Progress', 'Finished']), include_blank: true) %>
   </div>
   <div>
     <%= f.label :location %><br>

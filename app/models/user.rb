@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
 
   validates :skills, presence: true
-  # validates :roles, presence: true
+  # validates :roles, :role_id, presence: true
 
   accepts_nested_attributes_for :image
   accepts_nested_attributes_for :skills, :reject_if => :all_blank, :allow_destroy => true
