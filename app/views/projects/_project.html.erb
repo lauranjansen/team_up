@@ -1,6 +1,21 @@
-<div class="project">
-<%= link_to project.name, project_path(project.id) %>
-<%= project.description %><br>
-<%= project.status %><br>
-<%= project.location %>
+<div class="medium-6 columns project">
+	<div class="project-card">
+		<%= link_to(project) do %>
+			<div class="project-image">
+				<%= image_tag "https://placekitten.com/g/401/198" %>	
+			</div>
+			<div class="project-name">
+				<%= project.name %>
+			</div>
+			<div class="project-description">
+				<%= project.description %>
+			</div>
+			<div class="project-status">
+				<%= project.status %>
+			</div>
+			<div class="project-location">
+				<%= project.location %>
+			</div>
+		<% end %>
+	</div>
 </div>
