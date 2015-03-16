@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root "projects#index"
 
   resources :user_sessions, only: [:new, :create, :destroy]
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :index, :show]
 
   resources :position_requests
 
