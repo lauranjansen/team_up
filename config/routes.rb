@@ -2,6 +2,12 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :positions
+    resources :position_requests do
+      member do
+        post :accept
+        post :reject
+      end
+    end
   end
 
   root "projects#index"

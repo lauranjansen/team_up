@@ -1,5 +1,5 @@
 class Position < ActiveRecord::Base
-	has_one :role
+	belongs_to :role
 	belongs_to :project
 	belongs_to :user
 	has_many :position_requests

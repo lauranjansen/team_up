@@ -2,10 +2,11 @@
 <%= Role.find(position_request.position.role_id).name %> <br>
 <%= link_to User.find(position_request.applicant_id).first_name, user_path(User.find(position_request.applicant_id)) %>
 </div>
+<%= form_tag accept_project_position_request_path(@project, position_request), method: 'POST' do %>
+  <%= submit_tag 'Accept', class: 'accept' %>
+<% end %>
+<%= form_tag reject_project_position_request_path(@project, position_request), method: 'POST' do %>
+  <%= submit_tag 'Reject', class: 'reject' %>
+<% end %>
 <button class="accept">Accept</button>
 <button class="reject">Reject</button>
-
-<%= form_tag project_position_path(@project, position_request.position_id), method: 'patch', class: "position-update-form" do %>
-      <%= hidden_field_tag 'position[user_id]', position_request.applicant_id %>
-      <%= submit_tag %>
-<% end %>
