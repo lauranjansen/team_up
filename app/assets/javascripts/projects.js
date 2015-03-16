@@ -15,10 +15,18 @@ $(document).ready(function() {
     trigger: 'hover',
     reverse: true
   });
+  
+    $('.back').on('click', function(e){
+      form = $(e.currentTarget).find('.position_request_form');
+      form.submit();
+    });
 
-  $('.back').on('click', function(e){
-    form = $(e.currentTarget).find('.position-form');
-    form.submit();
   });
 
-});
+// $(document).ready(function() {
+//   $('.accept').on('click', function(e){
+//     form = $(e.currentTarget).find('.position-update-form');
+//     form.submit();
+//   });
+// });
+
