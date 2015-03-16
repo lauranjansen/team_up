@@ -1,23 +1,34 @@
-<h2>User Profile: <%= @user.first_name %> <%= @user.last_name %></h2>
+<!-- MAIN SECTION -->
+<section class="main-section margin-top">
+<div class="row">
 
-<%= @user.bio %><br>
-<%= @user.location %><br>
+    <div class="large-4  medium-3 columns">
+      <figure class="figure">
+        <img class="th" <%= image_tag(current_user.profile_picture) %>
+      </figure><!-- / FIGURE-->
+    </div><!-- / COLUMN-->
 
-<%= @user.email %><br>
+    <div class="large-8  medium-9 columns">
+          <div class="row">
+          <h3><%= @user.first_name %> <%= @user.last_name %> </h3>
+          <h8><%= @user.location %> | <%= @user.email %> </h8>
+          </div>
+          <hr>
 
+          <p><%= @user.bio %></p>
+          
+          <% @user.roles.each do |role| %>
+          <%= role.name %> &nbsp
+          <% end %>
 
-<%= image_tag(@user.profile_picture) %><br>
+          <br>
+          <hr>
+          <ul class=" inline-list ">
+          <% @user.skills.each do |skill| %>
+              <li><span class="label secondary"><i class="fi-check size-12"></i> &nbsp;  <%= skill.name %></span></li>
+          <% end %>
+          </ul>
 
-
-<b>Skills:</b>
-<% @user.skills.each do |skill| %>
-	<%= skill.name %>
-<% end %><br>
-
-
-<b>Roles:</b>
-<% @user.roles.each do |role| %>
-	<%= role.name %>
-
-<% end %><br>
-
+    </div><!-- / COLUMN-->
+</div><!-- / ROW-->
+</section><!-- / SECTION-->
