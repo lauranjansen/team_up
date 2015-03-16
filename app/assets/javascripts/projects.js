@@ -17,8 +17,15 @@ $(document).ready(function() {
     });
 
     $('.back').on('click', function(e){
-      form = $(e.currentTarget).find('.position-form');
+      form = $(e.currentTarget).find('.position_request_form');
       form.submit();
     });
 
   });
+
+// $(document).ready(function() {
+//   $('.accept').on('click', function(e){
+//     form = $(e.currentTarget).find('.position-update-form');
+//     form.submit();
+//   });
+// });
