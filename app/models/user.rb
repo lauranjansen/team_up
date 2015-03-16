@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_one :image, as: :imageable
   has_many :skills
   has_and_belongs_to_many :roles
-  has_many :owned_projects, class_name: 'Project'
+  has_many :owned_projects, class_name: 'Project', foreign_key: 'owner_id'
   has_many :position_requests
   has_many :requested_positions, through: :position_requests, class_name: 'Position'
   has_many :positions
