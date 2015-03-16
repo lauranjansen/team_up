@@ -6,6 +6,6 @@
 <button class="reject">Reject</button>
 
 <%= form_tag project_position_path(@project, position_request.position_id), method: 'patch', class: "position-update-form" do %>
-     <%= hidden_field_tag 'position[user_id]', position_request.applicant_id %>
+      <%= hidden_field_tag 'position[user_id]', position_request.applicant_id %>
       <%= submit_tag %>
 <% end %>
