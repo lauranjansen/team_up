@@ -14,7 +14,7 @@
 
   <body>
 
-    <div class="contain-to-grid">
+    <div class="contain-to-grid sticky">
   	  <nav class="top-bar" data-topbar role="navigation">
   	    <ul class="title-area">
   	      <li class="name">
@@ -29,12 +29,16 @@
   	      <ul class="right">
   	        <li class="has-form">
               <div class="row collapse">
-                <div class="large-8 small-9 columns">
-                  <input type="text" placeholder="Find projects or users">
-                </div>
-                <div class="large-4 small-3 columns">
-                  <a href="#" class="alert button expand">Search</a>
-                </div>
+                <%= form_tag projects_path, id: 'navbar_search_form', method: :get do %>
+                  <div class="large-8 small-9 columns">
+                    <%= text_field_tag :navbar_search, params[:search] %>
+                    <!-- <input type="text" placeholder="Find projects"> -->
+                  </div>
+                  <div class="large-4 small-3 columns">
+                    <%= submit_tag 'Search', class: :button %>
+                    <!-- <a href="#" class="alert button expand">Search</a> -->
+                  </div>
+                <% end %>
               </div>
             </li>
   	        <% if current_user %>
@@ -62,7 +66,10 @@
   	      <!-- Left Nav Section -->
   	      <ul class="left">
             <li>
-              
+              <%= link_to "Browse Projects", projects_path %>
+            </li>
+            <li>
+              <%= link_to "Browse Users", users_path %>
             </li>
   	      </ul>
   	    </section>
