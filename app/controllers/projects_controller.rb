@@ -22,6 +22,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    @project.positions.build
   end
 
   def show
@@ -34,6 +35,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.owner = current_user
 
     if @project.save
       redirect_to projects_path
@@ -62,6 +64,16 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name, :description, :status, :location)
+    params.require(:project).permit(
+      :name, 
+      :description, 
+      :status, 
+      :location,
+      positions_attributes: [
+        :description,
+        :role_id,
+        :_destroy
+      ]
+      )
   end
 end

@@ -1,0 +1,17 @@
+<button>
+<div class="card">
+  <div class="front">
+      <p>
+        <%= Role.find(positions.role_id).name %>
+        <%= positions.description %><br>
+      </p>
+  </div>
+  <div class="back">
+    <h3>Fill this Position</h3>
+    <%= form_tag position_requests_path, method: 'post', class: "position-form" do %>
+      <%= hidden_field_tag 'position_request[position_id]', positions.id %>
+      <%= hidden_field_tag 'project_id', @project.id %>
+    <% end %>
+  </div>
+</div>
+</button>

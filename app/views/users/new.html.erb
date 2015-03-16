@@ -85,6 +85,24 @@
       </div>
     </div>
   </div>
+  <h3>Roles</h3>
+    <div class="actions">
+    <%= f.fields_for :roles do |role| %>
+      <%= render "role_fields", f: role %>    
+    <% end %>
+    <div class="links">
+    <%= link_to_add_association "Add Role", f, :roles, ({class: "button round success small"}) %>
+    </div>
+  </div>
+  <h3>Skills</h3>
+    <div class="actions">
+    <%= f.fields_for :skills do |skill| %>
+      <%= render "skill_fields", f: skill %>    
+    <% end %>
+    <div class="links">
+    <%= link_to_add_association "Add Skill", f, :skills, ({class: "button round success small"}) %>
+    </div>
+  </div>
 	<div class="actions">
 		<%= f.submit "Sign up", {class: :button} %>
 	</div>

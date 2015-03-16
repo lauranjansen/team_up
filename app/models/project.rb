@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
 	belongs_to :owner, class_name: 'User'
 	has_many :position_requests, through: :positions
 
-  paginates_per 5
+  paginates_per 12
+
+  accepts_nested_attributes_for :positions, reject_if: :all_blank, allow_destroy: true
   
 end

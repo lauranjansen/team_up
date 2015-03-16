@@ -1,7 +1,36 @@
 <h1><%= @project.name %></h1>
+<div class="row">
+	<div class="medium-6 columns">
+	<h3> Location </h3>
+		<%= @project.description %>
+	</div>
+</div>
+<div class="row">
+	<div class="medium-6 columns">
+	<h3> Status </h3>
+		<%= @project.status %>
+	</div>
+</div>
+<div class="row">
+	<div class="medium-6 columns">
+	<h3> Location </h3>
+		<%= @project.location %>
+	</div>
+</div>
+<div class="row">
+	<div class="medium-6 columns">
+	<h3> Creator </h3>
+		 <%= @project.owner.first_name %>
+	</div>
+</div>
+	<h2> Open Positions </h2>
+<%= render partial: 'positions', collection: @project.positions %>
 
-<%= @project.description %>
-<%= @project.status %>
-<%= @project.location %>
+<h3> Position requests </h3>
+<%= render partial: 'position_request', collection: @project.position_requests %>
 
-<%= link_to "Back to Projects", projects_path %>
+<div class="row">
+	<div class="medium-6 columns">
+		<%= link_to "Back to Projects", projects_path %>
+	</div>
+</div>
