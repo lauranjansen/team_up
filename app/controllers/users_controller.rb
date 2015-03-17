@@ -21,6 +21,16 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def import
+		@user_profile = Linkedin::Profile.get_profile(import_params)
+		respond_to do |format|
+			format.html do
+				raise 'gtfo. scripts only'
+			end
+      format.js
+    end
+	end
+
 	def index
 		@users = User.all
 	end
@@ -60,5 +70,10 @@ class UsersController < ApplicationController
 
 	def load_role
 		@roles = Role.all
+	end
+
+	def import_params
+		params.require(:linkedin_url)
+		# params.require(:user).permit(:linkedin_url)
 	end
 end
