@@ -5,7 +5,10 @@ $(document).ready(function() {
 
     var linkedinUrl = $('#linkedin-url').val();
 
-    console.log(linkedinUrl);
+    var http = "http://";
+    if (!linkedinUrl.startsWith(http)) {
+    	linkedinUrl = http + linkedinUrl;
+    }
 
     $.getScript('/users/import?linkedin_url=' + linkedinUrl);
 
