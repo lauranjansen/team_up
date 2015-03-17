@@ -1,5 +1,21 @@
 <h1>New User Sign-up</h1>
 
+
+<%= form_tag users_path, id: 'import-form' do %>
+  <div class="row">
+    <div class="large-6 columns">
+      <div class="row collapse">
+        <div class="medium-10 columns">
+          <%= text_field_tag('linkedin-url', params[:linkedin_url] || 'http://ca.linkedin.com/in/lauranjansen', {class: "field"}) %>
+        </div>
+        <div class="medium-2 columns">
+          <%= submit_tag 'Import Profile', class: "button tiny postfix" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <%= form_for @user do |f| %>
 	<% if @user.errors.any? %>
 		<div class="error_messages">
@@ -85,25 +101,45 @@
       </div>
     </div>
   </div>
-  <h3>Roles</h3>
-    <div class="actions">
-    <%= f.fields_for :roles do |role| %>
-      <%= render "role_fields", f: role %>    
-    <% end %>
-    <div class="links">
-    <%= link_to_add_association "Add Role", f, :roles, ({class: "button round success small"}) %>
+  <div class="row">
+    <div class="actions medium-6 columns">
+      <h3>Roles</h3>
+      <%= f.fields_for :roles do |role| %>
+        <%= render "role_fields", f: role %>    
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "Add Role", f, :roles, ({class: "button round success small"}) %>
+      </div>
     </div>
   </div>
-  <h3>Skills</h3>
-    <div class="actions">
-    <%= f.fields_for :skills do |skill| %>
-      <%= render "skill_fields", f: skill %>    
-    <% end %>
-    <div class="links">
-    <%= link_to_add_association "Add Skill", f, :skills, ({class: "button round success small"}) %>
+  <div class="row">
+    <div class="large-6 columns">
+      <h3>Skills</h3>
+      <div class="row collapse">
+        <div class="medium-9 columns">
+          <input type="text" class="field" id="new-skill-field">
+        </div>
+        <div class="medium-3 columns">
+          <button class="button small postfix" id="add-skill">Add Skill</button>
+        </div>
+      </div>
     </div>
   </div>
-	<div class="actions">
-		<%= f.submit "Sign up", {class: :button} %>
-	</div>
+  <div class="row">
+    <div class="medium-12 columns">
+      <div id="skill-list">
+      </div>
+    </div>
+  </div>
+  <div style="float: right;" class="actions">
+    <%= f.submit "Sign up", {class: :button} %>
+  </div>
+
 <% end %>
+
+<div id="blank-field">
+  <ul class="button-group round skill-button">
+    <li><a href="#" class="button info tiny skill-name">Skill Name</a></li>
+    <li><a href="#" class="button info tiny remove-skill">X</a></li>
+  </ul>
+</div>
