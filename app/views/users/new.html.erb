@@ -2,8 +2,12 @@
 
 <div class="row">
   <%= form_tag users_path, id: 'import_form' do %>
-    <%= text_field_tag(:linkedin_url, params[:linkedin_url] || 'http://ca.linkedin.com/in/lauranjansen') %>
-    <%= submit_tag 'Import Profile', class: :button %>
+    <div class="medium-6 columns">
+      <%= text_field_tag(:linkedin_url, params[:linkedin_url] || 'http://ca.linkedin.com/in/lauranjansen', {class: "field"}) %>
+    </div>
+    <div class="medium-6 columns">
+      <%= submit_tag 'Import Profile', class: "button tiny" %>
+    </div>
   <% end %>
 </div>
 
@@ -114,5 +118,11 @@
 		<%= f.submit "Sign up", {class: :button} %>
 	</div>
   <div id="skill-field">
+  </div>
+  <div id="blank-field">
+    <ul class="button-group round skill-button">
+      <li><a href="#" class="button info tiny">Skill Name</a></li>
+      <li><a href="#" class="button info tiny remove-skill">X</a></li> 
+    </ul>
   </div>
 <% end %>
