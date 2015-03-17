@@ -8,9 +8,11 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params.except(:roles_attributes))
 		
-		user_params[:roles_attributes].each do |id, role_attrs|
-			role = Role.find_by(id: role_attrs['id'])
-			@user.roles << role
+		if user_params[:roles_attributes]
+			user_params[:roles_attributes].each do |id, role_attrs|
+				role = Role.find_by(id: role_attrs['id'])
+				@user.roles << role
+			end
 		end
 
 		if @user.save
