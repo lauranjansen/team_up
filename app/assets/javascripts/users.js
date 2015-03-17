@@ -14,9 +14,13 @@ $(document).ready(function() {
   $('#add-skill').on("click", function(event){
   	event.preventDefault();
 
-  	var skillToAdd = $('#new-skill-field').val();
+  	var newSkillField = $('#new-skill-field')
+
+  	var skillToAdd = newSkillField.val();
   	if (skillToAdd !== "") {
   		addSkill(skillToAdd, nextSkillId());
+			newSkillField.val("");
+			newSkillField.focus();
   	} else {
   		console.log("Skill field empty!")
   	}

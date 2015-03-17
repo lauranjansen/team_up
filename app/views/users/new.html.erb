@@ -112,21 +112,19 @@
       </div>
     </div>
   </div>
-  <%= form_tag users_path, id: 'add-skill-form' do %>
-    <div class="row">
-      <div class="large-6 columns">
-        <h3>Skills</h3>
-        <div class="row collapse">
-          <div class="medium-9 columns">
-            <%= text_field_tag("new-skill", nil, {class: "field", id: "new-skill-field"}) %>
-          </div>
-          <div class="medium-3 columns">
-            <%= submit_tag 'Add Skill', class: "button small postfix", id: "add-skill" %>
-          </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <h3>Skills</h3>
+      <div class="row collapse">
+        <div class="medium-9 columns">
+          <input type="text" class="field" id="new-skill-field">
+        </div>
+        <div class="medium-3 columns">
+          <button class="button small postfix" id="add-skill">Add Skill</button>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
   <div class="row">
     <div class="medium-12 columns">
       <div id="skill-list">
@@ -134,8 +132,7 @@
     </div>
   </div>
   <div style="float: right;" class="actions">
-    <!-- <input type="submit" class="button" value="Sign Up"> -->
-    <% f.submit "Sign up", {class: :button} %>
+    <%= f.submit "Sign up", {class: :button} %>
   </div>
 
 <% end %>
