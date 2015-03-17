@@ -96,8 +96,10 @@
       </div>
     </div>
   </div>
+  
   <h3>Roles</h3>
     <div class="actions">
+    
     <%= f.fields_for :roles do |role| %>
       <%= render "role_fields", f: role %>    
     <% end %>
