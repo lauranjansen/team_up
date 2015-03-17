@@ -1,15 +1,20 @@
 <h1>New User Sign-up</h1>
 
-<div class="row">
-  <%= form_tag users_path, id: 'import_form' do %>
-    <div class="medium-6 columns">
-      <%= text_field_tag(:linkedin_url, params[:linkedin_url] || 'http://ca.linkedin.com/in/lauranjansen', {class: "field"}) %>
+
+<%= form_tag users_path, id: 'import-form' do %>
+  <div class="row">
+    <div class="large-6 columns">
+      <div class="row collapse">
+        <div class="medium-10 columns">
+          <%= text_field_tag('linkedin-url', params[:linkedin_url] || 'http://ca.linkedin.com/in/lauranjansen', {class: "field"}) %>
+        </div>
+        <div class="medium-2 columns">
+          <%= submit_tag 'Import Profile', class: "button tiny postfix" %>
+        </div>
+      </div>
     </div>
-    <div class="medium-6 columns">
-      <%= submit_tag 'Import Profile', class: "button tiny" %>
-    </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <%= form_for @user do |f| %>
 	<% if @user.errors.any? %>
@@ -96,33 +101,48 @@
       </div>
     </div>
   </div>
-  <h3>Roles</h3>
-    <div class="actions">
-    <%= f.fields_for :roles do |role| %>
-      <%= render "role_fields", f: role %>    
-    <% end %>
-    <div class="links">
-    <%= link_to_add_association "Add Role", f, :roles, ({class: "button round success small"}) %>
+  <div class="row">
+    <div class="actions medium-6 columns">
+      <h3>Roles</h3>
+      <%= f.fields_for :roles do |role| %>
+        <%= render "role_fields", f: role %>    
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "Add Role", f, :roles, ({class: "button round success small"}) %>
+      </div>
     </div>
   </div>
-  <h3>Skills</h3>
-    <div class="actions">
-    <%= f.fields_for :skills do |skill| %>
-      <%= render "skill_fields", f: skill %>    
-    <% end %>
-    <div class="links">
-      <%= link_to_add_association "Add Skill", f, :skills, ({id: "add-skill", class: "button round success small"}) %>
+  <%= form_tag users_path, id: 'add-skill-form' do %>
+    <div class="row">
+      <div class="large-6 columns">
+        <h3>Skills</h3>
+        <div class="row collapse">
+          <div class="medium-9 columns">
+            <%= text_field_tag("new-skill", nil, {class: "field", id: "new-skill-field"}) %>
+          </div>
+          <div class="medium-3 columns">
+            <%= submit_tag 'Add Skill', class: "button small postfix", id: "add-skill" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="medium-12 columns">
+      <div id="skill-list">
+      </div>
     </div>
   </div>
-	<div class="actions">
-		<%= f.submit "Sign up", {class: :button} %>
-	</div>
-  <div id="skill-field">
+  <div style="float: right;" class="actions">
+    <!-- <input type="submit" class="button" value="Sign Up"> -->
+    <% f.submit "Sign up", {class: :button} %>
   </div>
-  <div id="blank-field">
-    <ul class="button-group round skill-button">
-      <li><a href="#" class="button info tiny">Skill Name</a></li>
-      <li><a href="#" class="button info tiny remove-skill">X</a></li> 
-    </ul>
-  </div>
+
 <% end %>
+
+<div id="blank-field">
+  <ul class="button-group round skill-button">
+    <li><a href="#" class="button info tiny skill-name">Skill Name</a></li>
+    <li><a href="#" class="button info tiny remove-skill">X</a></li>
+  </ul>
+</div>

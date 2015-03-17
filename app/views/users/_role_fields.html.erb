@@ -1,6 +1,5 @@
 <div class='nested-fields'>
   <div id='row'>
-    <%= f.label "Role" %>
     <div class="small-8 columns">
     <%= f.collection_select(:id, Role.all, :id, :name) %>
   </div>
