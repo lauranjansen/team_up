@@ -38,6 +38,12 @@ var nextSkillId = function(){
 	}
 }();
 
+function fadeSkill(skill, skillId) {
+	return function(){
+		addSkill(skill, skillId);
+	}
+}
+
 function addSkill(skill, skillId) {
 	var skillList = $('#skill-list');
 	var skillField = $('#blank-field').clone().attr("id", "skill-field-"+skillId);
