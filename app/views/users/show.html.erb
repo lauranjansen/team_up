@@ -8,9 +8,16 @@
       </figure><!-- / FIGURE-->
     </div><!-- / COLUMN-->
 
+
     <div class="large-8  medium-9 columns">
           <div class="row">
-          <h3><%= @user.first_name %> <%= @user.last_name %> </h3>
+          <h3><%= @user.first_name %> <%= @user.last_name %> &nbsp
+          <% if current_user %>
+            <% if current_user.id == @user.id %>
+              <p><%= link_to "Edit", edit_user_path(@user) %></p>
+            <% end %>
+          <% end %>
+          </h3>
           <h8><%= @user.location %> | <%= @user.email %> | </h8>
           <% @user.roles.each do |role| %>
           <%= role.name %>, &nbsp
@@ -28,11 +35,9 @@
 
           <br>
           <hr>
-          <ul class=" inline-list ">
-          <% @user.skills.each do |skill| %>
-              <li><span class="label secondary"><i class="fi-check size-12"></i> &nbsp;  <%= skill.name %></span></li>
-          <% end %>
-          </ul>
+        
+          <%= render partial: 'users/skill', collection: @user.skills %>
+
 
     </div><!-- / COLUMN-->
 </div><!-- / ROW-->
