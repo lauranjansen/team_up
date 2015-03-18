@@ -10,9 +10,9 @@ class User < ActiveRecord::Base
   has_many :positions
   has_many :team_projects, through: :positions, class_name: 'Project'
 
-  validates :password, length: { minimum: 3 }
+  validates :password, length: { minimum: 3 }, if: :password_changed?
   validates :password, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, if: :password_changed?
 
   validates :email, uniqueness: true
 
@@ -37,5 +37,10 @@ class User < ActiveRecord::Base
         "/uploads/image/picture/#{self.image.id}/" + [file_size, "picture.jpg"].compact.join('_')
       end
     end
+  end
+
+  private
+  def password_changed?
+    password.present? && !valid_password?(password)
   end
 end
