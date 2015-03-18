@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#navbar_search_form').submit(function(event) {
+  $('#navbar_search_button').on('click',function(event) {
     event.preventDefault();
 
     var searchValue = $('#navbar_search').val();
