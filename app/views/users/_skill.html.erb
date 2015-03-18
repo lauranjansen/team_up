@@ -1,7 +1,4 @@
-<div class="skill">
-	<ul class="button-group round skill-button">
-    <li><button class="button info tiny"><%= skill %></button></li>
-    <li><button class="button info tiny remove-skill">X</button></li>
-    <%= hidden_field_tag 'user[skills_attributes][#{}][name]', 'user_skills_attributes_#{}_name' %>
-  </ul>
+<div class="skill skill-button">
+	<button class="button round info tiny"><%= skill.name %></button></li>
+  <%= hidden_field_tag 'user[skills_attributes][#{}][name]', 'user_skills_attributes_#{}_name' %>
 </div>
