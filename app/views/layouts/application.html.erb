@@ -30,10 +30,10 @@
   	        <li class="has-form">
               <div class="row collapse">
                 <%= form_tag projects_path, id: 'navbar_search_form', method: :get do %>
-                  <div class="medium-8 columns">
+                  <div class="medium-6 columns">
                     <%= text_field_tag :navbar_search, params[:search], placeholder: "Find projects" %>
                   </div>
-                  <div class="medium-4 columns">
+                  <div class="medium-6 columns">
                     <button type="submit" class="alert button tiny postfix">Search</button>
                     <!-- <a href="#" class="alert button expand">Search</a> -->
                   </div>
