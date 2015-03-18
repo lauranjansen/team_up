@@ -21,7 +21,7 @@ $(document).ready(function() {
 
   	var skillToAdd = newSkillField.val();
   	if (skillToAdd !== "") {
-  		addSkill(skillToAdd, nextSkillId());
+  		addSkill(skillToAdd,nextSkillId());
 			newSkillField.val("");
 			newSkillField.focus();
   	} else {
