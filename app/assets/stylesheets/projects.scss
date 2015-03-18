@@ -1,5 +1,6 @@
 .project-card {
-	width: 100%;
+	position: relative;
+	width: 470px;
 	height: 200px;
 	margin: 10px 0px;
 	border: 1px solid black;
@@ -41,6 +42,11 @@
 }
 
 .project-image {
-	opacity: 0.4;
+	opacity: 0.6;
 	z-index: 0;
+	background-color: #00ffff;
+}
+
+.pagination {
+	text-align: center;
 }
