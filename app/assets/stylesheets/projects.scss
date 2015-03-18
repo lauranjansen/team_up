@@ -1,7 +1,8 @@
 .project-card {
 	position: relative;
-	width: 470px;
-	height: 200px;
+	width: 100%;
+	max-width: 468px;
+	max-height: 198px;
 	margin: 10px 0px;
 	border: 1px solid black;
 }
@@ -10,21 +11,25 @@
 	font-size: 1.8em;
 	font-weight: bold;
 	position: absolute;
-	top: 50px;
+	top: 25%;
 	margin: 5px;
 	width: 92%;
+	height: 2em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	text-align: center;
 	z-index: 10;
 }
 
 .project-description {
 	position: absolute;
-	bottom: 10px;
+	bottom: 0px;
 	margin: 5px;
-	width: 92%;
+	width: 95%;
 	overflow: hidden;
 	color: black;
-	max-height: 85px;
+	max-height: 35%;
 }
 
 .project-status {

@@ -18,20 +18,18 @@
   </div>
 </div>
 
-<div class="row">
+<!-- <div class="row">
   <div class="medium-4 medium-centered columns pagination">
-    <%= paginate @projects %>
+    <%#= paginate @projects %>
   </div>
-</div>
+</div> -->
 
 <div id="projects" class="row">
-  <div class="medium-centered">
     <%= render @projects %>
-  </div>
 </div>
 
 <div class="row">
-  <div class="medium-4 medium-centered columns pagination">
+  <div class="medium-12 medium-centered columns pagination">
     <%= paginate @projects %>
   </div>
 </div>

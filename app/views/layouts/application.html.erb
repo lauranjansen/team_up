@@ -21,14 +21,14 @@
   	        <h1><%= link_to "TeamUp", root_path %></h1>
   	      </li>
   	       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-  	      <li class="toggle-topbar"><a href="#"><span>Menu</span></a></li>
+  	      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   	    </ul>
 
   	    <section class="top-bar-section">
   	      <!-- Right Nav Section -->
   	      <ul class="right">
-  	        <li class="medium-8 columns has-form">
-<!--               <div class="row collapse"> -->
+  	        <li class="has-form">
+              <div class="row collapse">
                 <%= form_tag projects_path, id: 'navbar_search_form', method: :get do %>
                   <div class="large-8 medium-8 small-9 columns">
                     <%= text_field_tag :navbar_search, params[:search], placeholder: "Find projects" %>
@@ -42,7 +42,7 @@
               <!-- </div> -->
             </li>
   	        <% if current_user %>
-              <li class="has-dropdown not-click">
+              <li class="has-dropdown">
                 <a href="#"><%= image_tag(current_user.profile_picture("small_thumb")) %> <%= current_user.first_name %></a>
                 <ul class="dropdown">
                   <li><%= link_to "My Profile", user_path(current_user.id) %></li>
@@ -51,6 +51,8 @@
                 </ul>
               </li>
             <% else %>
+              <li class="divider">
+              </li>
               <li>
                 <%= link_to "Log in", :login %>
               </li>
@@ -65,10 +67,10 @@
   	      <!-- Left Nav Section -->
   	      <ul class="left">
             <li>
-              <%= link_to "Browse Projects", projects_path %>
+              <%= link_to "Projects", projects_path %>
             </li>
             <li>
-              <%= link_to "Browse Users", users_path %>
+              <%= link_to "Users", users_path %>
             </li>
   	      </ul>
   	    </section>
