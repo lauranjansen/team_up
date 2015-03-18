@@ -47,12 +47,17 @@ function fadeSkill(skill, skillId) {
 function addSkill(skill, skillId) {
 	var skillList = $('#skill-list');
 	var skillField = $('#blank-field').clone().attr("id", "skill-field-"+skillId);
-	skillField.find('.skill-name').text(skill);
+	var skillName = skillField.find('.skill-name');
+	skillName.text(skill);
+	skillName.on('click', function(e){
+		e.preventDefault();
+	});
 	skillField.find('.remove-skill').on('click', function(e){
+		e.preventDefault();
 		skillField.fadeOut(function(){
 			skillField.remove();	
 		});
-	})
+	});
 	skillField.hide();
 	var hiddenTagName = 'user[skills_attributes][' + skillId + '][name]';
 	var hiddenTagId = 'user_skills_attributes_' + skillId + '_name';

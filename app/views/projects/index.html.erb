@@ -11,7 +11,7 @@
           <%= submit_tag 'Search', class: "button postfix alert" %>
         </div>
         <div class="medium-2 columns right">
-          <%= link_to "Add a Project.", new_project_path, class: "button postfix" %>
+          <%= link_to "Add a Project", new_project_path, class: "button postfix expand" %>
         </div>
       </div>
     <% end %>
@@ -25,7 +25,9 @@
 </div>
 
 <div id="projects" class="row">
-  <%=render @projects %>
+  <div class="medium-centered">
+    <%= render @projects %>
+  </div>
 </div>
 
 <div class="row">

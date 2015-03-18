@@ -3,13 +3,13 @@
 
 <%= form_tag users_path, id: 'import-form' do %>
   <div class="row">
-    <div class="large-6 columns">
+    <div class="medium-6 columns">
       <div class="row collapse">
-        <div class="medium-10 columns">
+        <div class="medium-9 columns">
           <%= text_field_tag('linkedin-url', params[:linkedin_url] || 'http://ca.linkedin.com/in/lauranjansen', {class: "field"}) %>
         </div>
-        <div class="medium-2 columns">
-          <%= submit_tag 'Import Profile', class: "button tiny postfix" %>
+        <div class="medium-3 columns">
+          <%= submit_tag 'Import Profile', class: "button small postfix" %>
         </div>
       </div>
     </div>
@@ -117,7 +117,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="large-6 columns">
+    <div class="medium-6 columns">
       <h3>Skills</h3>
       <div class="row collapse">
         <div class="medium-9 columns">
@@ -135,15 +135,17 @@
       </div>
     </div>
   </div>
-  <div style="float: right;" class="actions">
-    <%= f.submit "Sign up", {class: :button} %>
+  <div class="actions row">
+    <div class="medium-2 right columns">
+      <%= f.submit "Sign up", {class: "button expand"} %>
+    </div>
   </div>
 
 <% end %>
 
 <div id="blank-field">
   <ul class="button-group round skill-button">
-    <li><a href="#" class="button info tiny skill-name">Skill Name</a></li>
-    <li><a href="#" class="button info tiny remove-skill">X</a></li>
+    <li><button class="button info tiny skill-name">Skill Name</button></li>
+    <li><button class="button info tiny remove-skill">X</button></li>
   </ul>
 </div>
