@@ -2,6 +2,10 @@
 @import "projects";
 @import "users";
 
+* {
+  box-sizing: border-box;
+}
+
 .field {
 	width: 200px;
 	float: left;
@@ -14,8 +18,4 @@
 .bio-text {
 	height: 90px;
 	resize: none;
-}
-
-.content {
-	margin-top: 50px;
 }
