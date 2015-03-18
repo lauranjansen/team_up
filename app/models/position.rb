@@ -6,4 +6,9 @@ class Position < ActiveRecord::Base
 	has_many :applicants, through: :position_requests, class_name: 'User'
 
 	scope :open, -> { where(user_id: nil) }
+
+  def filled
+    position.user_id != nil
+  end
+
 end

@@ -6,6 +6,7 @@ class PositionRequestsController < ApplicationController
   def create 
     @position_request = project.position_requests.build(position_request_params)
     @position_request.applicant_id = current_user.id
+    PositionMailer.position_request_mail(project.owner).deliver_now
     if @position_request.save
       redirect_to project_path(@project)
     end
