@@ -14,7 +14,12 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password_confirmation, presence: true, if: :password_changed?
 
-  validates :email, uniqueness: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email, uniqueness: true, presence: true
+  validates :location, presence: true
+  validates :bio, presence: true
+
 
   validates :skills, presence: true
   validates :roles, presence: true
