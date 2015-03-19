@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+   before_filter :require_login, :only => :new
 
   def index
     if params[:search]
@@ -73,7 +74,10 @@ class ProjectsController < ApplicationController
         :description,
         :role_id,
         :_destroy
+      ],
+      image_attributes: [
+        :picture
       ]
-      )
+    )
   end
 end

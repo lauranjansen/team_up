@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
     session[:previous_url] || root_path
   end
 
+  def not_authenticated
+    redirect_to login_url
+  end
+
 end

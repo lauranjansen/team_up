@@ -10,6 +10,12 @@
         </ul>
       </div>
     <% end %>
+  <div class="row">
+    <div class="medium-12 columns">
+      <%= f.label "Project Picture" %>
+      <%= f.file_field "image_attributes[picture]" %>
+    </div>
+  </div>
   <div>
     <%= f.label :name %><br>
     <%= f.text_field :name %> 

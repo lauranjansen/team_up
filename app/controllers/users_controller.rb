@@ -2,8 +2,22 @@ class UsersController < ApplicationController
 	before_filter :load_role
 
 	def index
-		@users = User.all
-	end
+    if params[:search]
+      #Project.where("name ILIKE ?", "%#{params[:search]}%")
+      @users = User.where("(first_name || last_name) ILIKE ?", "%#{params[:search]}%").limit(200)
+    else     
+      @users = User.all.page params[:page]
+    end
+
+    respond_to do |format|
+      format.html do
+        if request.xhr?
+          render @users
+        end
+      end
+      format.js
+    end
+  end
 
 	def new
 		@user = User.new
