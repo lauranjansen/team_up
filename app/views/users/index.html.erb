@@ -2,6 +2,22 @@
 
 <hr>
 
+<div id="search_bar" class="row">
+  <div class="small-12 columns">
+    <%= form_tag users_path, id: 'users_search_form', method: :get do %>
+      <div class="row collapse">
+        <div class="small-8 medium-5 large-4 columns">
+          <%= text_field_tag :search, params[:search], placeholder: "Find users" %>
+        </div>
+        <div class="small-4 medium-3 large-2 columns">
+          <%= submit_tag 'Search', class: "button postfix alert" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
 <!-- <div class="row">
   <div class="medium-4 medium-centered columns">
     <%# paginate @users %>
@@ -16,7 +32,7 @@
   <%# end %>
 </div> -->
 
-<div id="projects" class="row">
+<div id="users" class="row">
   <%=render @users %>
 </div>
 
@@ -24,4 +40,4 @@
   <div class="medium-4 medium-centered columns">
     <%# paginate @users %>
   </div>
-</div> -->
+</div> 
