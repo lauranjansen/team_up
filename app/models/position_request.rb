@@ -12,6 +12,7 @@ class PositionRequest < ActiveRecord::Base
       position.update_attributes(user: applicant)
       update_attributes(status: 'accepted')
       reject_other_applicants if completely_filled?
+      PositionMailer.accepted_position_mail(applicant, position.project, position.role.name).deliver_now
     end
   end
 
