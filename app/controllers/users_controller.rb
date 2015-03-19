@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
 	before_filter :load_role
 
+	def index
+		@users = User.all
+	end
+
 	def new
 		@user = User.new
 	end
@@ -37,8 +41,18 @@ class UsersController < ApplicationController
 	  end
 	end
 
-	def index
-		@users = User.all
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:id])
+
+		if @user.update_attributes(user_params)
+			redirect_to user_path(@user)
+		else
+			render :edit
+		end
 	end
 
 	def show

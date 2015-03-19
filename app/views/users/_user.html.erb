@@ -1,6 +1,12 @@
-<div class="medium-6 columns user">
-	<%= link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %>
-	<%= user.email %><br>
-	<%= user.location %><br>
-	<%= user.bio %><br>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
+<div class="medium-4 columns project">
+  <div class="profile-card">
+    <img <%= image_tag(user.profile_picture) %>
+    <div class="profile-info">
+      <h4 class="subheader"><%= link_to truncate("#{user.first_name} #{user.last_name}", :length => 15), user_path(user.id) %></h4>
+      <p><strong><%= user.location %></strong></p> 
+       <p><%= user.email %></p>
+    </div>
+  </div>
 </div>
