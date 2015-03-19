@@ -52,7 +52,7 @@
               <li class="divider">
               </li>
               <li>
-                <%= link_to "Log in", :login %>
+                <%= link_to "Log in", :login, {id: "login"} %>
               </li>
               <li class="divider">
               </li>
@@ -77,6 +77,9 @@
     
     <div class="row content">
       <div class="large-12 medium-12 small-9 small-centered columns">
+        <div id="showlogin">
+        </div>
+        
         <%= yield %>
       </div>
     </div>

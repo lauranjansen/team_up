@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 		end
 
 		if @user.save
+			LoginMailer.welcome_mail(@user).deliver_now
 			session[:user_id] = @user.id
 			redirect_to user_path(@user), notice: "Welcome to Team Up!"
 		else
