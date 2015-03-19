@@ -74,7 +74,10 @@ class ProjectsController < ApplicationController
         :description,
         :role_id,
         :_destroy
+      ],
+      image_attributes: [
+        :picture
       ]
-      )
+    )
   end
 end
