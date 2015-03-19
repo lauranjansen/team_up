@@ -5,8 +5,9 @@ class UserSessionsController < ApplicationController
   end
 
   def create
+    session[:return_to] ||= request.referer
     if @user = login(params[:email], params[:password])
-      redirect_back_or_to(user_path(@user), notice: 'Login successful')
+    redirect_to session.delete(:return_to), notice: 'Login successful'
     else
       flash.now[:alert] = 'Login failed'
       render action: 'new'
