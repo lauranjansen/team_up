@@ -52,12 +52,14 @@
               <li class="divider">
               </li>
               <li>
-                <%= link_to "Log in", :login, {id: "login"} %>
+                <%= link_to "Sign up", new_user_path %>
               </li>
               <li class="divider">
               </li>
               <li>
-                <%= link_to "Sign up", new_user_path %>
+                <%= link_to "Log in", :login, {id: "login"} %>
+              </li>
+              <li class="divider">
               </li>
             <% end %>
   	      </ul>
@@ -77,9 +79,10 @@
     
     <div class="row content">
       <div class="large-12 medium-12 small-9 small-centered columns">
-        <div id="showlogin">
+        <div class="row">
+          <div id="showlogin" class="small-3">
+          </div>
         </div>
-        
         <%= yield %>
       </div>
     </div>

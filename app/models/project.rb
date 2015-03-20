@@ -12,6 +12,8 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :positions, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :image
 
+  paginates_per 6
+
   def profile_picture(*file_size)
     if (self.image == nil)
       if file_size.empty?
