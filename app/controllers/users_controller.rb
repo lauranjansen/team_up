@@ -51,7 +51,6 @@ class UsersController < ApplicationController
 					raise 'Requires JavaScript.'
 				end
 	      format.js
-	      puts "!!!!!"
 	    end
 	  else
 	  	render 'layouts/error.js'
