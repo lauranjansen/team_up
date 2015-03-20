@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :load_role
+	skip_before_filter :require_login
 
 	def index
     if params[:search]
