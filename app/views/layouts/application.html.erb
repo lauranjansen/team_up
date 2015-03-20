@@ -27,7 +27,7 @@
   	    <section class="top-bar-section">
           <ul>
             <li class="has-form">
-              <div class="row collapse"> <!-- style="display: none;" -->
+              <div class="row collapse" style="display: none;"> <!-- -->
                 <div class="large-8 medium-8 small-9 columns">
                   <%= text_field_tag :navbar_search, params[:search], placeholder: "Find projects" %>
                 </div>
@@ -52,12 +52,14 @@
               <li class="divider">
               </li>
               <li>
-                <%= link_to "Log in", :login, {id: "login"} %>
+                <%= link_to "Sign up", new_user_path %>
               </li>
               <li class="divider">
               </li>
               <li>
-                <%= link_to "Sign up", new_user_path %>
+                <%= link_to "Log in", :login, {id: "login"} %>
+              </li>
+              <li class="divider">
               </li>
             <% end %>
   	      </ul>
@@ -77,9 +79,10 @@
     
     <div class="row content">
       <div class="large-12 medium-12 small-9 small-centered columns">
-        <div id="showlogin">
+        <div class="row">
+          <div id="showlogin" class="small-3">
+          </div>
         </div>
-        
         <%= yield %>
       </div>
     </div>

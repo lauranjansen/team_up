@@ -26,11 +26,18 @@
 <div class="row">
 	<div class="medium-6 columns">
 	<h3> Creator </h3>
-		 <%= @project.owner.first_name %>
+		 <%= link_to @project.owner.first_name, user_path(@project.owner) %>
 	</div>
 </div>
-	<h2> Open Positions </h2>
-<%= render partial: 'position', collection: @project.positions %>
+
+<h2> Open Positions </h2>
+
+<div class="row">
+	<div class="medium-6 columns">
+		<%= render partial: 'position', collection: @project.positions %>
+	</div>
+</div>
+
 <% if current_user == @project.owner %>
 <h3> Position requests </h3>
 <%= render partial: 'position_request', collection: @project.position_requests %>
@@ -38,6 +45,6 @@
 
 <div class="row">
 	<div class="medium-6 columns">
-		<%= link_to "Back to Projects", projects_path %>
+		<%= link_to "Back to Projects", projects_path, class: :button %>
 	</div>
 </div>
