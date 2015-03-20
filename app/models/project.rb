@@ -9,8 +9,6 @@ class Project < ActiveRecord::Base
 	validates :status, presence: true
 	validates :location, presence: true
 
-  paginates_per 6
-
   accepts_nested_attributes_for :positions, reject_if: :all_blank, allow_destroy: true
   accepts_nested_attributes_for :image
 

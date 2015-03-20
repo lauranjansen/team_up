@@ -3,10 +3,8 @@
 <%= link_to User.find(position_request.applicant_id).first_name, user_path(User.find(position_request.applicant_id)) %>
 </div>
 <%= form_tag accept_project_position_request_path(@project, position_request), method: 'POST' do %>
-  <%= submit_tag 'Accept', class: 'accept' %>
+  <%= submit_tag 'Accept',{class: :button} %>
 <% end %>
 <%= form_tag reject_project_position_request_path(@project, position_request), method: 'POST' do %>
-  <%= submit_tag 'Reject', class: 'reject' %>
+  <%= submit_tag 'Reject',{class: :button} %>
 <% end %>
-<button class="accept">Accept</button>
-<button class="reject">Reject</button>

@@ -1,18 +1,17 @@
 <% if position.user_id %>
-  <div class="filled-position">
+  <div class="position-card">
   <h1> This position has been filled </h1>
   </div>
 <% else %>
-  <div class="apply">
-  <button>
-      <%= position.role.name %>
-      <%= position.description %>
-      <%= position.user_id %><br>
-      <h3>Fill this Position</h3>
+  <div class="apply position-card">
+    <div class="position-info"><strong>Position Role:</strong> <br>
+    <%= position.role.name %><br>
+    <strong>Position Decription:</strong> <br>
+    <%= position.description %>
     <%= form_tag position_requests_path, method: 'post', class: "position_request_form" do %>
     <%= hidden_field_tag 'position_request[position_id]', position.id %>
       <%= hidden_field_tag 'project_id', @project.id %>
     <% end %>
-  </button>
+    </div>
   </div>
 <% end %>
