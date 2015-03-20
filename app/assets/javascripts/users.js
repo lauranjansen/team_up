@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+
   $('#import-form').submit(function(event) {
     event.preventDefault();
 

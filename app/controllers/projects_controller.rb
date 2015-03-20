@@ -9,8 +9,6 @@ class ProjectsController < ApplicationController
       @projects = Project.all.page params[:page]
     end
 
-    # @projects = @projects.page params[:page]
-
     respond_to do |format|
       format.html do
         if request.xhr?
