@@ -1,7 +1,8 @@
+console.log("JS running");
 var skillList = $('#skill-list');
 skillList.html("");
 <% @user_profile.skills.each do |skill| %>
-	setTimeout(fadeSkill("<%= skill %>", nextSkillId()), 0);
+	addSkill("<%= skill %>", nextSkillId());
 <% end %>
 $('#user_first_name').val("<%= j(@user_profile.first_name) %>");
 $('#user_last_name').val("<%= j(@user_profile.last_name) %>");
