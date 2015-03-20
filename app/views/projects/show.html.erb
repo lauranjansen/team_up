@@ -31,9 +31,10 @@
 </div>
 	<h2> Open Positions </h2>
 <%= render partial: 'position', collection: @project.positions %>
-
+<% if current_user == @project.owner %>
 <h3> Position requests </h3>
 <%= render partial: 'position_request', collection: @project.position_requests %>
+<% end %>
 
 <div class="row">
 	<div class="medium-6 columns">

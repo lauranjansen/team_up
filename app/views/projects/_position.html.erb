@@ -4,8 +4,8 @@
   </div>
 <% else %>
   <div class="apply position-card">
-    <div class="position-info"><strong>Position Role:</strong> <br>
-    <%= position.role.name %><br>
+    <div class="position-info"><strong>Position:</strong> <br>
+    <h3><%= position.role.name %></h3><br>
     <strong>Position Decription:</strong> <br>
     <%= position.description %>
     <%= form_tag position_requests_path, method: 'post', class: "position_request_form" do %>
