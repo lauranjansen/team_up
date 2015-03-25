@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  authenticates_with_sorcery! do |config|
+    config.authentications_class = Authentication
+  end
+
+  has_many :authentications, dependent: :destroy
 
   has_one :image, as: :imageable
   has_many :skills
@@ -27,6 +31,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :image
   accepts_nested_attributes_for :skills, :reject_if => :all_blank, :allow_destroy => true
   accepts_nested_attributes_for :roles, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :authentications
 
   def profile_picture(*file_size)
     if (self.image == nil)
@@ -42,6 +47,10 @@ class User < ActiveRecord::Base
         "/uploads/image/picture/#{self.image.id}/" + [file_size, "picture.jpg"].compact.join('_')
       end
     end
+  end
+
+  def has_linked_github?
+    authentication.where(provider: 'github').present?
   end
 
   private
