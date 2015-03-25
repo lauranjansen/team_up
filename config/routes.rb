@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root "projects#index"
+  root "projects#home"
 
   get '/users/import' => 'users#import', as: :import_user
 
