@@ -4,21 +4,21 @@
 
     <div class="large-4  medium-3 columns">
       <figure class="figure">
-        <img class="th" <%= image_tag(@user.profile_picture) %>
+        <%= image_tag(@user.profile_picture) %>
       </figure><!-- / FIGURE-->
     </div><!-- / COLUMN-->
 
 
     <div class="large-8  medium-9 columns">
-          <div class="row">
-          <h3><%= @user.first_name %> <%= @user.last_name %> &nbsp
+      <div class="row">
+        <h3><%= @user.first_name %> <%= @user.last_name %> &nbsp
           <% if current_user %>
             <% if current_user.id == @user.id %>
               <p><%= link_to "Edit", edit_user_path(@user) %></p>
             <% end %>
           <% end %>
-          </h3>
-          <h8><%= @user.location %> | <%= @user.email %> | </h8>
+        </h3>
+        <h8><%= @user.location %> | <%= @user.email %> | </h8>
           <% @user.roles.each do |role| %>
           <%= role.name %>, &nbsp
           <% end %>

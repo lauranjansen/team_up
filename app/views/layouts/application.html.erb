@@ -15,7 +15,7 @@
   <body data-grid-framework="f4" data-grid-color="blue" data-grid-opacity="0.5" data-grid-zindex="10" data-grid-gutterwidth="30px" data-grid-nbcols="16">
 
     <div class="contain-to-grid fixed">
-  	  <nav class="top-bar" data-topbar role="navigation">
+  	  <nav class="top-bar small-12" data-topbar role="navigation">
   	    <ul class="title-area">
   	      <li class="name">
   	        <h1><%= link_to "TeamUp", root_path %></h1>
@@ -49,8 +49,8 @@
                 </ul>
               </li>
             <% else %>
-              <li class="divider">
-              </li>
+              <!-- <li class="divider">
+              </li> -->
               <li>
                 <%= link_to "Sign up", new_user_path %>
               </li>
@@ -59,8 +59,8 @@
               <li>
                 <%= link_to "Log in", :login, {id: "login"} %>
               </li>
-              <li class="divider">
-              </li>
+              <!-- <li class="divider">
+              </li> -->
             <% end %>
   	      </ul>
 
