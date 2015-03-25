@@ -82,3 +82,34 @@
 .pagination {
 	text-align: center;
 }
+
+.panel{
+	background-image: url("http://www.mrwallpaper.com/wallpapers/star-wars-scout-trooper-1920x1200.jpg");
+	opacity: 1.0;
+	height: 30em;
+	background-position: center top;
+	@media screen and (max-width: 640px) {
+		height: 10em;
+	}
+}
+
+.panel h1{
+	text-align: center;
+	color: white;
+	font-family: "Arial";
+	position: relative;
+	top: 50%;
+	@media screen and (max-width: 640px) {
+		top: 20%;
+	}
+}
+
+.panel p{
+	text-align: center;
+	color: white;
+	position: relative;
+	top: 50%;
+	@media screen and (max-width: 640px) {
+		display: none;
+	}
+}
