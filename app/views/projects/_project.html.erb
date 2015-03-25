@@ -1,11 +1,29 @@
-<%= link_to(project) do %>
-      <div class="medium-6 large-4 columns">
-        <article class="article-card">
-          <img <%= image_tag(project.profile_picture) %>
-          <div class="card-content">
-            <h4><%= project.name %></h4>
-            <p><%= truncate(project.description, :length => 100) %></p>
-            <p class="post-location"><a href="#"><%= project.owner.first_name %> | <%= project.location %></a></p>
-        </article>
-      </div>
-<% end %>
+<div class="small-12 medium-6 large-4 centered columns">
+	<div class="project-wrapper">
+		<div class="project-card">
+			<%= link_to project do %>
+				<div class="project-image">
+					<%= image_tag project.project_picture %>
+				</div>
+				<div class="project-info">
+					<div class="project-name">
+						<%= project.name %>
+					</div>
+					<div class="row">
+						<div class="project-description small-12 columns">
+							<%= project.description %>
+						</div>
+					</div>
+					<div class="row">
+						<div class="project-location small-6 left columns">
+							<i class="fi-marker"></i><%= project.location %>
+						</div>
+						<div class="project-owner small-6 right columns">
+							by <%= link_to project.owner.first_name, project.owner %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

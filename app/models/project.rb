@@ -14,18 +14,18 @@ class Project < ActiveRecord::Base
 
   paginates_per 6
 
-  def profile_picture(*file_size)
+  def project_picture(*file_size)
     if (self.image == nil)
       if file_size.empty?
-        "/fallback/picture.jpg"
+        "/fallback/project_picture.jpg"
       else
-        "/fallback/" + [file_size, "picture.jpg"].compact.join('_')
+        "/fallback/" + [file_size, "project_picture.jpg"].compact.join('_')
       end
     else
       if file_size.empty?
         self.image.picture
       else
-        "/uploads/image/picture/#{self.image.id}/" + [file_size, "picture.jpg"].compact.join('_')
+        "/uploads/image/picture/#{self.image.id}/" + [file_size, "project_picture.jpg"].compact.join('_')
       end
     end
   end

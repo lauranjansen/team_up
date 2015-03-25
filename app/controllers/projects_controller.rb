@@ -2,19 +2,14 @@ class ProjectsController < ApplicationController
   before_filter :require_login, :only => :new
 
   def index
-    if params[:search]
-      #Project.where("name ILIKE ?", "%#{params[:search]}%")
-      @projects = Project.where("LOWER(name) LIKE LOWER(?)", "%#{params[:search]}%")
+    @projects = if params[:search]
+      Project.where("name ILIKE ?", "%#{params[:search]}%").order('projects.created_at DESC').page(params[:page])
     else     
-      @projects = Project.all.page params[:page]
+      Project.order('projects.created_at DESC').page(params[:page])
     end
 
     respond_to do |format|
-      format.html do
-        if request.xhr?
-          render @projects
-        end
-      end
+      format.html
       format.js
     end
   end
