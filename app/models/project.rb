@@ -17,9 +17,9 @@ class Project < ActiveRecord::Base
   def profile_picture(*file_size)
     if (self.image == nil)
       if file_size.empty?
-        "/fallback/picture.jpg"
+        "/fallback/project_picture.jpg"
       else
-        "/fallback/" + [file_size, "picture.jpg"].compact.join('_')
+        "/fallback/" + [file_size, "project_picture.jpg"].compact.join('_')
       end
     else
       if file_size.empty?
