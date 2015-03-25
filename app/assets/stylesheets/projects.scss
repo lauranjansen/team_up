@@ -25,6 +25,7 @@
 	position: relative;
 	margin: 0px 10px;
 	/*background-color: #999;*/
+	height: 160px;
 }
 
 .project-name {
@@ -71,6 +72,11 @@
 	bottom: 5px;
 	right: 5px;
 	text-align: right;
+}
+
+.extra-info {
+	/*margin-bottom: 5px;*/
+	/*background-color: #666;*/
 }
 
 .pagination {
