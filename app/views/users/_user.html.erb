@@ -1,10 +1,12 @@
-<div class="medium-4 columns project">
-  <div class="profile-card">
-    <%= image_tag(user.profile_picture) %>
-    <div class="profile-info">
-      <h4 class="subheader"><%= link_to truncate("#{user.first_name} #{user.last_name}", :length => 15), user_path(user.id) %></h4>
-      <p><strong><%= user.location %></strong></p> 
-      <p><%= user.email %></p>
-    </div>
-  </div>
+<div class="small-12 medium-6 large-4 columns">
+	<div class="profile-wrapper">
+	  <div class="profile-card">
+	    <%= image_tag(user.profile_picture) %>
+	    <div class="profile-info">
+	      <h4 class="subheader"><%= link_to truncate("#{user.first_name} #{user.last_name}", :length => 15), user_path(user.id) %></h4>
+	      <p><strong><%= user.location %></strong></p> 
+	      <p><%= user.email %></p>
+	    </div>
+	  </div>
+	</div>
 </div>
