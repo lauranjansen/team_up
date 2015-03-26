@@ -25,8 +25,8 @@ class User < ActiveRecord::Base
   validates :bio, presence: true
 
 
-  validates :skills, presence: true
-  validates :roles, presence: true
+  # validates :skills, presence: true
+  # validates :roles, presence: true
 
   accepts_nested_attributes_for :image
   accepts_nested_attributes_for :skills, :reject_if => :all_blank, :allow_destroy => true
@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
   end
 
   def has_linked_github?
-    authentication.where(provider: 'github').present?
+    authentications.where(provider: 'github').present?
   end
 
   private

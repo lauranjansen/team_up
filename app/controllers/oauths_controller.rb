@@ -17,20 +17,16 @@ class OauthsController < ApplicationController
       # user has already linked their account with github
 
       flash[:notice] = "Logged in using #{provider.titleize}!"
-      redirect_to root_path
+      redirect_back_or_to root_path
     else
-      # User has not linked their account with Github yet. If they are logged in,
-      # authorize the account to be linked. If they are not logged in, require them
-      # to sign in. NOTE: If you wanted to allow the user to register using oauth,
-      # this section will need to be changed to be more like the wiki page that was
-      # linked earlier.
-
-      if logged_in?
-        link_account(provider)
-        redirect_to root_path
-      else
-        flash[:alert] = 'You are required to link your GitHub account before you can use this feature. You can do this by clicking "Link your Github account" after you sign in.'
-        redirect_to login_path
+      begin
+        puts "?????"
+        @user = create_and_validate_from(provider)
+        auto_login(@user)
+        redirect_back_or_to edit_user_path(@user), notice: "Logged in from #{provider.titleize}!"
+      rescue
+        puts "!!!!!"
+        redirect_back_or_to new_user_path, alert: "Failed to login from #{provider.titleize}!"        
       end
     end
   end

@@ -21,7 +21,16 @@ class UsersController < ApplicationController
   end
 
 	def new
-		@user = User.new
+		if session[:incomplete_user]
+			user_hash = session[:incomplete_user]["user_hash"]
+			email = user_hash["email"]
+			first_name = user_hash["first_name"]
+			last_name = user_hash["last_name"]
+			@user = User.new(email: email, first_name: first_name, last_name: last_name)
+			session.delete(:incomplete_user)
+		else
+			@user = User.new
+		end
 	end
 
 	def create
