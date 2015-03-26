@@ -20,12 +20,10 @@ class OauthsController < ApplicationController
       redirect_back_or_to root_path
     else
       begin
-        puts "?????"
         @user = create_and_validate_from(provider)
         auto_login(@user)
         redirect_back_or_to edit_user_path(@user), notice: "Logged in from #{provider.titleize}!"
       rescue
-        puts "!!!!!"
         redirect_back_or_to new_user_path, alert: "Failed to login from #{provider.titleize}!"        
       end
     end
