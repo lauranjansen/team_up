@@ -84,8 +84,10 @@
 }
 
 .panel{
+	position: relative;
+	width: 100vw;
+  left: calc(-50vw + 50%);
 	background-image: url("http://www.mrwallpaper.com/wallpapers/star-wars-scout-trooper-1920x1200.jpg");
-	opacity: 1.0;
 	height: 30em;
 	background-position: center top;
 	@media screen and (max-width: 640px) {
@@ -95,21 +97,29 @@
 
 .panel h1{
 	text-align: center;
-	color: white;
+	color: #008cba;
 	font-family: "Arial";
 	position: relative;
-	top: 50%;
+	top: 40%;
 	@media screen and (max-width: 640px) {
 		top: 20%;
 	}
 }
 
-.panel p{
-	text-align: center;
+.panel a{
+	left: 42.5%;
+	margin-top: 17.5%;
 	color: white;
-	position: relative;
-	top: 50%;
+	font-weight: bold;
+	background-color: transparent;
+	border: 2px solid white;
 	@media screen and (max-width: 640px) {
 		display: none;
 	}
+}
+
+.panel a:hover{
+	background-color: transparent;
+	color: #008cba;
+	border: 2px solid #008cba;
 }
