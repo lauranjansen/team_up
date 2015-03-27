@@ -76,7 +76,6 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 
 		@user.skip_password = true
-		binding.pry
 		if @user.update_attributes(user_params)
 			redirect_to user_path(@user)
 		else

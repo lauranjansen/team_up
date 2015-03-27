@@ -14,10 +14,11 @@ class OauthsController < ApplicationController
     provider = auth_params[:provider]
 
     if @user = login_from(provider)
+       session[:return_to] ||= request.referer
       # user has already linked their account with github
 
       flash[:notice] = "Logged in using #{provider.titleize}!"
-      redirect_back_or_to root_path
+      redirect_to session.delete(:return_to), notice: 'Login successful'
     else
       begin
         if provider == 'github'
