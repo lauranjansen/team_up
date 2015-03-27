@@ -8,5 +8,5 @@
     <%= f.label :role_id %>
     <%= f.collection_select(:role_id, Role.all, :id, :name) %>
   </div>
-  <%= link_to_remove_association "Remove position", f %>
+  <%= link_to_remove_association "Remove position", f, class: :button %>
 </div>

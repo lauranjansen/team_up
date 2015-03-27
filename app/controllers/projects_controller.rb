@@ -76,6 +76,7 @@ class ProjectsController < ApplicationController
       :description, 
       :status, 
       :location,
+      :github_repo,
       positions_attributes: [
         :description,
         :role_id,
