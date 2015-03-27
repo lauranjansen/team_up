@@ -1,4 +1,6 @@
 class PositionRequestsController < ApplicationController
+  before_filter :require_login, :only => :create
+
   def new
     @positionrequest = project.position_requests.new
   end
