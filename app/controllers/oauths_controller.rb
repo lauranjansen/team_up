@@ -20,9 +20,11 @@ class OauthsController < ApplicationController
       redirect_back_or_to root_path
     else
       begin
-        @user = create_and_validate_from(provider)
-        auto_login(@user)
-        redirect_back_or_to edit_user_path(@user), notice: "Logged in from #{provider.titleize}!"
+        if provider == 'github'
+          @user = create_from_github
+          auto_login(@user)
+          redirect_back_or_to edit_user_path(@user), notice: "Logged in from #{provider.titleize}!"
+        end
       rescue
         redirect_back_or_to new_user_path, alert: "Failed to login from #{provider.titleize}!"        
       end
@@ -62,6 +64,27 @@ class OauthsController < ApplicationController
     else
       flash[:alert] = "There was a problem linking your GitHub account."
     end
+  end
+
+  def create_from_github
+    provider_name = 'github'
+    sorcery_fetch_user_hash provider_name
+    config = user_class.sorcery_config
+
+    attrs = user_attrs(@provider.user_info_mapping, @user_hash)
+
+    puts attrs.to_hash
+    if attrs[:name]
+      first_name = attrs[:name].split[0]
+      last_name = attrs[:name].split[1]
+      attrs[:first_name] = first_name
+      attrs[:last_name] = last_name
+      attrs.delete(:name)
+    end
+
+    user = user_class.create_from_provider(provider_name, @user_hash[:uid], attrs)
+
+    return user
   end
 
   def auth_params

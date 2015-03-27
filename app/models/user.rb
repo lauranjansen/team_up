@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
     config.authentications_class = Authentication
   end
 
+  attr_accessor :skip_password
+  
   has_many :authentications, dependent: :destroy
 
   has_one :image, as: :imageable
@@ -14,9 +16,9 @@ class User < ActiveRecord::Base
   has_many :positions
   has_many :team_projects, through: :positions, class_name: 'Project'
 
-  validates :password, length: { minimum: 3 }, if: :password_changed?
+  validates :password, length: { minimum: 3 }, unless: :skip_password
   validates :password, confirmation: true
-  validates :password_confirmation, presence: true, if: :password_changed?
+  validates :password_confirmation, presence: true, unless: :skip_password
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -24,9 +26,8 @@ class User < ActiveRecord::Base
   validates :location, presence: true
   validates :bio, presence: true
 
-
-  # validates :skills, presence: true
   # validates :roles, presence: true
+  # validates :skills, presence: true
 
   accepts_nested_attributes_for :image
   accepts_nested_attributes_for :skills, :reject_if => :all_blank, :allow_destroy => true

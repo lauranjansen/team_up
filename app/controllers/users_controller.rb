@@ -26,7 +26,9 @@ class UsersController < ApplicationController
 			email = user_hash["email"]
 			first_name = user_hash["first_name"]
 			last_name = user_hash["last_name"]
-			@user = User.new(email: email, first_name: first_name, last_name: last_name)
+			location = user_hash["location"]
+			bio = user_hash["bio"]
+			@user = User.new(email: email, first_name: first_name, last_name: last_name, location: location, bio: bio)
 			session.delete(:incomplete_user)
 		else
 			@user = User.new
@@ -73,6 +75,8 @@ class UsersController < ApplicationController
 	def update
 		@user = User.find(params[:id])
 
+		@user.skip_password = true
+		binding.pry
 		if @user.update_attributes(user_params)
 			redirect_to user_path(@user)
 		else
