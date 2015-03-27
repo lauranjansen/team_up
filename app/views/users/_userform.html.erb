@@ -2,10 +2,10 @@
   <div class="row">
     <div class="large-6 columns">
       <div class="row collapse">
-        <div class="medium-10 columns">
+        <div class="medium-9 columns">
           <%= text_field_tag('linkedin-url', params[:linkedin_url] || 'http://ca.linkedin.com/in/lauranjansen', {class: "field"}) %>
         </div>
-        <div class="medium-2 columns">
+        <div class="medium-3 columns">
           <%= submit_tag 'Import Profile', class: "button tiny postfix" %>
         </div>
       </div>
@@ -36,7 +36,7 @@
           <%= f.label(:first_name, {class: :prefix}) %>
         </div>
         <div class="small-8 columns">
-          <%= f.text_field(:first_name, {placeholder: "Tester"}) %>
+          <%= f.text_field(:first_name, {placeholder: "e.g. Luke"}) %>
         </div>
       </div>
     	<div class="row collapse">
@@ -44,7 +44,7 @@
           <%= f.label(:last_name, {class: :prefix}) %>
         </div>
         <div class="small-8 columns">
-          <%= f.text_field(:last_name, {placeholder: "McTest"}) %>
+          <%= f.text_field(:last_name, {placeholder: "e.g. Skywalker"}) %>
         </div>
       </div>
       <div class="row collapse">
@@ -52,7 +52,7 @@
           <%= f.label(:email, {class: :prefix}) %>
         </div>
         <div class="small-8 columns">
-          <%= f.text_field(:email, {placeholder: "tester@mctest.com"}) %>
+          <%= f.text_field(:email, {placeholder: "e.g. luke@skwlkr.com"}) %>
         </div>
       </div>
     </div>
@@ -62,7 +62,7 @@
           <%= f.label(:location, {class: :prefix}) %>
         </div>
         <div class="small-8 columns">
-          <%= f.text_field(:location, {placeholder: "Toronto"}) %>
+          <%= f.text_field(:location, {placeholder: "e.g. Tatooine"}) %>
         </div>
       </div>
     	<div class="row collapse">

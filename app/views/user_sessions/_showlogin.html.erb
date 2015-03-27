@@ -2,16 +2,25 @@
   <h1>Login</h1>
   
   <%= form_tag user_sessions_path, method: :post do %>
-    <div class="field login-field">
-      <%= label_tag :email %><br/>
-      <%= text_field_tag :email %>
+    <div class="row collapse field login-field ">
+      <div class="small-4 columns">
+        <%= label_tag :email, nil, class: :prefix %>
+      </div>
+      <div class="small-8 columns">
+        <%= text_field_tag :email %>
+      </div>
     </div>
-    <div class="field login-field">
-      <%= label_tag :password %><br/>
-      <%= password_field_tag :password %>
+    <div class="row collapse field login-field ">
+      <div class="small-4 columns">
+        <%= label_tag :password, nil, class: :prefix %>
+      </div>
+      <div class="small-8 columns">
+        <%= password_field_tag :password %>
+      </div>
     </div>
     <div class="actions">
       <%= submit_tag 'Login', class: "button right" %>
     </div>
   <% end %>
+  <%= render 'shared/session_links' %>
 </div>
