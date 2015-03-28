@@ -37,6 +37,14 @@
           <hr>
         
           <%= render partial: 'users/skill', collection: @user.skills %>
+          
+          <br>
+          <hr>
+          Projects Contributed To:
+          <br>
+          <% @user.positions.each do |position| %>
+          <%= link_to position.project.name, project_path(position.project) %> &nbsp
+          <% end %>
 
 
     </div><!-- / COLUMN-->

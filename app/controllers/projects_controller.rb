@@ -55,7 +55,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
 
-    if @project.update_attribute
+    if @project.update_attributes(project_params)
       redirect_to project_path(@project)
     else
       flash.now[:alert] = "Project could not be updated."
