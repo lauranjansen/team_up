@@ -40,3 +40,20 @@
 .accept{
   float: left;
 }
+
+.new-position {
+  padding: 5px;
+  min-height: 250px;
+  background-color: #333;
+}
+
+.position-wrapper {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.new-position-button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
