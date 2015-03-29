@@ -17,6 +17,7 @@
       <%= f.file_field "image_attributes[picture]" %>
     </div>
   </div>
+
   <div class="row">
     <div class="medium-6 columns">
       <div class="row collapse">
@@ -42,7 +43,7 @@
           <%= f.label :status, class: :prefix %>
         </div>
         <div class="small-8 columns">
-          <%= select(:project, :status, options_for_select(['Open', 'In Progress', 'Finished']), include_blank: true) %>
+          <%= f.select(:status, options_for_select(['Open', 'In Progress', 'Finished']), include_blank: true) %>
         </div>
       </div>
       <div class="row collapse">
@@ -62,21 +63,32 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="medium-12 columns">
-        <h3>Positions</h3>
-        <div id = "Positions">
-          <%= f.fields_for :positions do |position| %>
-            <%= render 'position_fields', :f => position %>
-          </div>
-          <div class="links">
-            <%= link_to_add_association 'Add Position', f, :positions, class: :button %>
-          </div>
+  </div>
+  <h3>Positions</h3>
+  <div class="row">
+    <div class="small-12 columns">
+      <div class="row" id="positions">
+        <%= f.fields_for :positions do |position| %>
+          <%= render 'position_fields', :f => position %>
+        <% end %>
+        <div class="small-12 medium-6 large-4 columns end links">
+          <%= link_to_add_association(f, :positions, class: "new-position-button") do %>
+            <div class="position-wrapper">
+              <div class="new-position">
+                Add new position
+              </div>
+            </div>
           <% end %>
-        <div>
-          <%= f.submit({class: :button})%>
         </div>
-      </div>
+      </div> 
+    </div>  
+  </div>
+  <div class="row">
+    <div class="small-6 medium-6 columns">
+      <%= link_to "Back to Projects", projects_path, class: :button %>
+    </div>
+    <div class="small-6 medium-6 columns">
+      <%= f.submit({class: "button right"})%>
     </div>
   </div>
 <% end %>
