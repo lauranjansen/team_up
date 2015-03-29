@@ -86,7 +86,7 @@
 .panel{
 	position: relative;
 	width: 100vw;
-  left: calc(-50vw + 50%);
+  left: calc(-50vw + 49.25%);
 	background-image: url("http://www.mrwallpaper.com/wallpapers/star-wars-scout-trooper-1920x1200.jpg");
 	height: 30em;
 	background-position: center top;
@@ -100,15 +100,15 @@
 	color: #008cba;
 	font-family: "Arial";
 	position: relative;
-	top: 40%;
+	top: 3em;
 	@media screen and (max-width: 640px) {
-		top: 20%;
+		top: 1em;
 	}
 }
 
 .panel a{
-	left: 42.5%;
-	margin-top: 17.5%;
+	left: 43%;
+	margin-top: 13em;
 	color: white;
 	font-weight: bold;
 	background-color: transparent;
