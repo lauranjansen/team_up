@@ -5,6 +5,6 @@ $(document).ready(function() {
 
     var searchValue2 = $('#search').val();
 
-    $.getScript('/users?search=' + searchValue2);
+    $.getScript('?search=' + searchValue2);
   });
 });
