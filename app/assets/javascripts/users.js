@@ -31,6 +31,8 @@ $(document).ready(function() {
   });
 
   $('#user_role_id').on("change", function(event){
+  	event.preventDefault();
+
   	var userFilter = $(this).val();
   	
   	$.getScript('?user_filter=' + userFilter);

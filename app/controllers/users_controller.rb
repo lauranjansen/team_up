@@ -5,8 +5,13 @@ class UsersController < ApplicationController
 	def index
 
     if params[:user_filter]
-    	role = Role.find(params[:user_filter])
-    	@users = role.users
+    	user_filter = params[:user_filter]
+    	if user_filter.to_i > 0
+    		role = Role.find(user_filter)
+				@users = role.users
+	    else
+	    	@users = User.all
+	    end
     else
     	@users = User.all
     end
