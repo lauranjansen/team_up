@@ -3,11 +3,24 @@ class UsersController < ApplicationController
 	skip_before_filter :require_login
 
 	def index
+
+    if params[:user_filter]
+    	user_filter = params[:user_filter]
+    	if user_filter.to_i > 0
+    		role = Role.find(user_filter)
+				@users = role.users
+	    else
+	    	@users = User.all
+	    end
+    else
+    	@users = User.all
+    end
+		
     if params[:search]
       #Project.where("name ILIKE ?", "%#{params[:search]}%")
-      @users = User.where("(first_name || last_name) ILIKE ?", "%#{params[:search]}%").limit(200)
+      @users = @users.where("(first_name || last_name) ILIKE ?", "%#{params[:search]}%").limit(200)
     else     
-      @users = User.all.page params[:page]
+      @users = @users.all.page params[:page]
     end
 
     respond_to do |format|

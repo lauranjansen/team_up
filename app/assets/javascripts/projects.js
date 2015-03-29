@@ -7,6 +7,16 @@ $(document).ready(function() {
     $.getScript('/projects?search=' + searchValue);
 
   });
+
+  $('#project_role_id').on("change", function(event){
+    event.preventDefault();
+
+    var projectFilter = $(this).val();
+    
+    $.getScript('?project_filter=' + projectFilter);
+
+  });
+
 });
 
 $(document).ready(function() {
