@@ -29,6 +29,13 @@ $(document).ready(function() {
   		console.log("Skill field empty!")
   	}
   });
+
+  $('#user_role_id').on("change", function(event){
+  	var userFilter = $(this).val();
+  	
+  	$.getScript('?user_filter=' + userFilter);
+
+  });
 });
 
 var nextSkillId = function(){
