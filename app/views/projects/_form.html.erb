@@ -71,7 +71,7 @@
         <%= f.fields_for :positions do |position| %>
           <%= render 'position_fields', :f => position %>
         <% end %>
-        <div class="small-12 medium-6 large-4 columns links">
+        <div class="small-12 medium-6 large-4 columns end links">
           <%= link_to_add_association(f, :positions, class: "new-position-button") do %>
             <div class="position-wrapper">
               <div class="new-position">
