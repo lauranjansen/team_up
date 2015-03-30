@@ -66,7 +66,6 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-
     if @project.update_attributes(project_params)
       redirect_to project_path(@project)
     else
@@ -92,6 +91,7 @@ class ProjectsController < ApplicationController
       positions_attributes: [
         :description,
         :role_id,
+        :id,
         :_destroy
       ],
       image_attributes: [

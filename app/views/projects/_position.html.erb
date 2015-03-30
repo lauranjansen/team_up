@@ -4,7 +4,7 @@
       <div class="position-card filled">
         <h3> This position has been filled by</h3>
         <h4><%= link_to position.user.first_name, user_path(position.user) %>
-        as a <%= position.role.name.downcase %></h4>
+        as <%= position.role.name.downcase %></h4>
       </div>
     </div>
   <% else %>

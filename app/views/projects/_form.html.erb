@@ -43,7 +43,7 @@
           <%= f.label :status, class: :prefix %>
         </div>
         <div class="small-8 columns">
-          <%= f.select(:status, options_for_select(['Open', 'In Progress', 'Finished']), include_blank: true) %>
+          <%= f.select(:status, options_for_select(['Open', 'In Progress', 'Finished'], @project.status), include_blank: true) %>
         </div>
       </div>
       <div class="row collapse">
@@ -75,7 +75,7 @@
           <%= link_to_add_association(f, :positions) do %>
             <div class="position-wrapper">
               <div class="new-position">
-                <button class="button expand success new-position-button"><i class="fi-plus"></i>Add new position</button>
+                <button class="button radius expand success new-position-button"><i class="fi-plus"></i>Add new position</button>
               </div>
             </div>
           <% end %>
@@ -83,12 +83,15 @@
       </div> 
     </div>  
   </div>
+  
+  <hr>
+
   <div class="row">
-    <div class="small-6 medium-6 columns">
-      <%= link_to "Back to Projects", projects_path, class: :button %>
+    <div class="small-12 medium-4 right columns">
+      <%= f.submit({class: "button radius expand"})%>
     </div>
-    <div class="small-6 medium-6 columns">
-      <%= f.submit({class: "button right"})%>
+    <div class="small-12 medium-4 left columns">
+      <%= link_to "Back to Projects", projects_path, class: "button radius expand" %>
     </div>
   </div>
 <% end %>

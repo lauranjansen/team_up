@@ -16,7 +16,6 @@
     cursor: pointer; cursor: hand;
     background-color: rgba(100, 206, 138, 0.8);
     color: rgba(255, 255, 255, 1);
-    transform: scale(1.07);
     transition: all .3s ease-out;
   }
 }
@@ -71,6 +70,7 @@
 }
 
 .reject {
+  background-color: transparent;
   margin-top: 10px;
   float: right;
 }
@@ -96,7 +96,8 @@
   padding: 5px;
   text-align: center;
   min-height: 250px;
-  border: 1px solid black;
+  border: 1px solid #F4F4F4;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .new-position-button {
