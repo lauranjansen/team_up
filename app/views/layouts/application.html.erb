@@ -18,7 +18,9 @@
   	  <nav class="top-bar small-12" data-topbar role="navigation">
   	    <ul class="title-area">
   	      <li class="name">
-  	        <h1><%= link_to "TeamUp", root_path %></h1>
+  	        <%= link_to root_path do  %>
+              <img class="icon-logo" src="icon.png" alt="TeamUp">
+            <% end %>
   	      </li>
   	       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
   	      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -32,7 +34,7 @@
                   <%= text_field_tag :navbar_search, params[:search], placeholder: "Find projects" %>
                 </div>
                 <div class="large-4 medium-4 small-3 columns">
-                  <button id='navbar_search_button' class='alert button expand'>Search</button>
+                  <button id='navbar_search_button' class='alert button radius expand'>Search</button>
                 </div>
               </div>
             </li>
@@ -51,12 +53,12 @@
             <% else %>
               <!-- <li class="divider">
               </li> -->
-              <li>
+              <li class="top-stuff">
                 <%= link_to "Sign up", new_user_path %>
               </li>
               <li class="divider">
               </li>
-              <li>
+              <li class="top-stuff">
                 <%= link_to "Log in", :login, {id: "login"} %>
               </li>
               <!-- <li class="divider">
@@ -66,10 +68,10 @@
 
   	      <!-- Left Nav Section -->
   	      <ul class="left">
-            <li>
+            <li class="top-stuff">
               <%= link_to "Projects", projects_path %>
             </li>
-            <li>
+            <li class="top-stuff">
               <%= link_to "Users", users_path %>
             </li>
   	      </ul>
