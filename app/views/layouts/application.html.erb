@@ -18,7 +18,9 @@
   	  <nav class="top-bar small-12" data-topbar role="navigation">
   	    <ul class="title-area">
   	      <li class="name">
-  	        <h1><%= link_to "TeamUp", root_path %></h1>
+  	        <%= link_to root_path do  %>
+              <img class="icon-logo" src="icon.png" alt="TeamUp">
+            <% end %>
   	      </li>
   	       <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
   	      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
