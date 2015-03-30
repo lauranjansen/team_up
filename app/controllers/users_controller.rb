@@ -68,14 +68,18 @@ class UsersController < ApplicationController
 	end
 
 	def import
-		@user_profile = Linkedin::Profile.get_profile(import_params)
-		if @user_profile
-			respond_to do |format|
-				format.html do
-					raise 'Requires JavaScript.'
-				end
-	      format.js
-	    end
+		if import_params.include? "linkedin"
+			@user_profile = Linkedin::Profile.get_profile(import_params)
+			if @user_profile
+				respond_to do |format|
+					format.html do
+						raise 'Requires JavaScript.'
+					end
+		      format.js
+		    end
+		  else
+		  	render 'layouts/error.js'
+		  end
 	  else
 	  	render 'layouts/error.js'
 	  end
