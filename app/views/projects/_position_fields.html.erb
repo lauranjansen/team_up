@@ -1,4 +1,4 @@
-<div class="small-12 medium-6 large-4 columns nested-fields">
+<div class="small-12 medium-6 large-4 columns end nested-fields">
   <div class="position-wrapper">
     <div class="new-position">
       <div class="row collapse">
@@ -14,15 +14,17 @@
           <%= f.label :description, class: :prefix %>
         </div>
         <div class="small-8 columns">
-          <%= f.text_area :description, class: "bio-text" %>
+          <%= f.text_area :description, class: "position-text" %>
         </div>
       </div>
       <div class="row">
         <!-- <div class="small-6 columns">
           <%# link_to "Duplicate position", nil, class: :button %>  
         </div> -->
-        <div class="small-8 columns">
-          <%= link_to_remove_association "Remove position", f, class: :button %>
+        <div class="small-12 columns">
+          <%= link_to_remove_association f, class: "button expand alert centered" do %>
+            <i class="fi-x"></i>Remove position
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,3 +1,5 @@
 <div>
-  <%= link_to 'Sign in with Github', auth_at_provider_path(provider: :github), class: :button %>
+  <%= link_to auth_at_provider_path(provider: :github) do %>
+  	<button><i class="fi-social-github"></i>Sign in with Github</button>
+  <% end %>
 </div>

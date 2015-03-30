@@ -1,14 +1,14 @@
-
-
-<div class="medium-4 columns project">
-  <div class="profile-card">
- <strong>Position:</strong> <h4> <%= position_request.position.role.name %></h4>
-  <strong> Applicant Name: </strong> <%= link_to User.find(position_request.applicant_id).first_name, user_path(User.find(position_request.applicant_id)) %>
-  <%= form_tag accept_project_position_request_path(@project, position_request), method: 'POST' do %>
-    <%= submit_tag 'Accept',{class: "tiny button accept"} %>
-  <% end %>
-  <%= form_tag reject_project_position_request_path(@project, position_request), method: 'POST' do %>
-    <%= submit_tag 'Reject',{class: "tiny button reject"} %>
-  <% end %>
-</div>
+<div class="small-12 medium-6 large-4 end columns project">
+  <div class="pos-req-card">
+		<strong>Position:</strong>
+		<h4><%= position_request.position.role.name %></h4>
+	  <strong> Applicant Name:</strong>
+	  <%= link_to position_request.applicant.first_name, user_path(position_request.applicant) %>
+	  <%= form_tag accept_project_position_request_path(@project, position_request), method: 'POST' do %>
+	    <%= submit_tag 'Accept',{class: "button success accept"} %>
+	  <% end %>
+	  <%= form_tag reject_project_position_request_path(@project, position_request), method: 'POST' do %>
+	    <%= submit_tag 'Reject',{class: "button secondary reject"} %>
+	  <% end %>
+	</div>
 </div>

@@ -1,7 +1,13 @@
 $(document).ready(function() {
 
-
-  $('#import-form').submit(function(event) {
+	$('#linkedin-url').keypress(function(event) {
+		if (event.which == 13) {
+			$('#import-button').click();
+		}
+		$(this).css("color", "black");
+	})
+  
+  $('#import-button').on("click", function(event) {
     event.preventDefault();
 
     var linkedinUrl = $('#linkedin-url').val();
