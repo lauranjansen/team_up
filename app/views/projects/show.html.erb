@@ -1,36 +1,40 @@
-<div class="large-4  medium-3 columns">
-  <figure class="figure">
-    <%= image_tag(@project.project_picture) %>
-  </figure><!-- / FIGURE-->
-</div><!-- / COLUMN-->
+<div class="row">
+	<div class="small-12 medium-6 columns">
+	  <figure class="figure">
+	    <%= image_tag(@project.project_picture) %>
+	  </figure>
+	</div>
 
-<h1><%= @project.name %></h1>
-<div class="row">
-	<div class="medium-6 columns">
-	<h3> Location </h3>
-		<%= @project.description %>
-	</div>
-</div>
-<div class="row">
-	<div class="medium-6 columns">
-	<h3> Status </h3>
-		<%= @project.status %>
-	</div>
-</div>
-<div class="row">
-	<div class="medium-6 columns">
-	<h3> Location </h3>
-		<%= @project.location %>
-	</div>
-</div>
-<div class="row">
-	<div class="medium-6 columns">
-	<h3> Creator </h3>
-		 <%= link_to @project.owner.first_name, user_path(@project.owner) %>
+	<div class="small-12 medium-6 columns">
+		<h1><em><%= @project.name %></em></h1>
+		<div class="row">
+			<div class="small-12 columns">
+			<h3>Description</h3>
+				<p><%= @project.description %></p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+			<h3>Status</h3>
+				<%= @project.status %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+			<h3>Location</h3>
+				<%= @project.location %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="small-12 columns">
+			<h3>Creator</h3>
+				 <%= link_to @project.owner.first_name, user_path(@project.owner) %>
+			</div>
+		</div>
 	</div>
 </div>
 
-<h2> Open Positions </h2>
+<h2>Open Positions</h2>
 <div class="row">
 	<%= render partial: 'position', collection: @project.positions %>
 </div>
