@@ -72,10 +72,10 @@
           <%= render 'position_fields', :f => position %>
         <% end %>
         <div class="small-12 medium-6 large-4 columns end links">
-          <%= link_to_add_association(f, :positions, class: "new-position-button") do %>
+          <%= link_to_add_association(f, :positions) do %>
             <div class="position-wrapper">
               <div class="new-position">
-                Add new position
+                <button class="button expand success new-position-button"><i class="fi-plus"></i>Add new position</button>
               </div>
             </div>
           <% end %>
