@@ -57,46 +57,6 @@ a.button.info.tiny {
         float: none;
         display: inline-block;
       }
-      i.fi-social-facebook {
-        font-size: 1.5rem;
-        color: #3b5998;
-        &:hover {
-          transform: scale(1.5);
-          transition: all .5s ease-in-out;
-        }
-      }
-      i.fi-social-twitter {
-        font-size: 1.5rem;
-        color: #55acee;
-        &:hover {
-          transform: scale(1.5);
-          transition: all .5s ease-in-out;
-        }
-      }
-      i.fi-social-linkedin {
-        font-size: 1.5rem;
-        color: #0077b5;
-        &:hover {
-          transform: scale(1.5);
-          transition: all .5s ease-in-out;
-        }
-      }
-      i.fi-social-github {
-        font-size: 1.5rem;
-        color: #333;
-        &:hover {
-          transform: scale(1.5);
-          transition: all .5s ease-in-out;
-        }
-      }
-      i.fi-social-youtube {
-        font-size: 1.5rem;
-        color: #cc181e;
-        &:hover {
-          transform: scale(1.5);
-          transition: all .5s ease-in-out;
-        }
-      }  
     }
   }
 }
