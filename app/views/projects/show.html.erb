@@ -36,10 +36,10 @@
 </div>
 
 <% if (current_user == @project.owner) && (@project.position_requests.count > 0) %>
-<h3>Position requests</h3>
-<div class="row">
-	<%= render partial: 'position_request', collection: @project.position_requests %>
-</div>
+	<h3>Position requests</h3>
+	<div class="row">
+		<%= render partial: 'position_request', collection: @project.position_requests %>
+	</div>
 <% end %>
 
 <div class="row">
