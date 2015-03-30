@@ -43,7 +43,7 @@
   	      <ul class="right">
   	        <% if current_user %>
               <li class="has-dropdown">
-                <a href="#"><%= image_tag(current_user.profile_picture("small_thumb")) %> <%= current_user.first_name %></a>
+                <a href="#"><%= image_tag(current_user.profile_picture("small_thumb"), class: "user_thumb") %><%= current_user.first_name %></a>
                 <ul class="dropdown">
                   <li><%= link_to "My Profile", user_path(current_user.id) %></li>
                   <li><%= link_to "Create a Project", new_project_path %></li>
@@ -78,9 +78,16 @@
   	    </section>
   	  </nav>
     </div>
+
     
     <div class="row content">
       <div class="large-12 medium-12 small-9 small-centered columns">
+        <% if flash[:notice] %>
+          <div class="flash notice"><%= flash[:notice] %></div>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="flash alert"><%= flash[:alert] %></div>
+        <% end %>
         <div id="showlogin">
           <!-- login form goes here -->
         </div>
