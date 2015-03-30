@@ -32,6 +32,10 @@ a.button.info.tiny {
   margin-bottom: 2rem;
   max-width: 303px;
   background-color: #fff;
+  &:hover {
+    background-color: #333;
+    transition: all .5s ease-in-out;
+  }
   img {
     width: 8rem;
     display: block;

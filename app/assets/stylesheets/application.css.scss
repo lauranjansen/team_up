@@ -4,7 +4,12 @@
 @import "users";
 @import "positions";
 @import "user_sessions";
+@import "position_requests";
 
 * {
   box-sizing: border-box;
+}
+
+i {
+	margin-right: 10px;
 }

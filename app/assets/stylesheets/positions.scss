@@ -46,9 +46,18 @@
   margin-bottom: 20px;
 }
 
+.position-text {
+  height: 100px;
+  resize: none;
+}
+
 .new-position {
   padding: 5px;
   text-align: center;
   min-height: 250px;
-  background-color: #333;
+  border: 1px solid black;
+}
+
+.new-position-button {
+  top: 169px;
 }
