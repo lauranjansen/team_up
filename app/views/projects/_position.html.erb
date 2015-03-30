@@ -10,16 +10,16 @@
   <% else %>
     <div class="position-wrapper">
       <div class="apply-now apply">
-        <h3>Apply to Position</h3>
+        Apply to Position
         <%= form_tag position_requests_path, method: 'post', class: "position_request_form" do %>
           <%= hidden_field_tag 'position_request[position_id]', position.id %>
           <%= hidden_field_tag 'project_id', @project.id %>
         <% end %>
       </div>
       <div class="apply position-card">
-        <div class="position-info"><strong>Position:</strong> <br>
-          <h3><%= position.role.name %></h3><br>
-          <strong>Position Decription:</strong> <br>
+        <div class="position-info">
+          <h3><%= position.role.name %></h3>
+          <strong>Position Decription:</strong><br>
           <%= position.description %>
         </div>
       </div>

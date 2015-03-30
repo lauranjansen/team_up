@@ -45,6 +45,7 @@ class UsersController < ApplicationController
 			session.delete(:incomplete_user)
 		else
 			@user = User.new
+			@user.roles.build
 		end
 	end
 
@@ -53,8 +54,9 @@ class UsersController < ApplicationController
 		
 		if user_params[:roles_attributes]
 			user_params[:roles_attributes].each do |id, role_attrs|
-				role = Role.find_by(id: role_attrs['id'])
-				@user.roles << role
+				if role = Role.find_by(id: role_attrs['id'])
+					@user.roles << role
+				end
 			end
 		end
 

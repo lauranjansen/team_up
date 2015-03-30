@@ -1,8 +1,8 @@
 <div class='nested-fields'>
   <div id='row'>
     <div class="small-8 columns">
-    <%= f.collection_select(:id, Role.all, :id, :name) %>
+    <%= f.collection_select(:id, Role.all, :id, :name, prompt: "Select a role") %>
   </div>
-   <%= link_to_remove_association "Remove", f, ({class: "button round alert tiny"}) %>
+   <%= link_to_remove_association "Remove", f, ({class: "button alert tiny"}) %>
 </div>
 </div>
