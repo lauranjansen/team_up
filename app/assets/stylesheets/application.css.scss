@@ -19,3 +19,7 @@ i {
 	width: 40px;
 	margin: 4px;
 }
+
+.top-bar-section ul li > a:not(.button):hover {
+	color: #75B739;
+}

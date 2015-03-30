@@ -34,7 +34,7 @@
                   <%= text_field_tag :navbar_search, params[:search], placeholder: "Find projects" %>
                 </div>
                 <div class="large-4 medium-4 small-3 columns">
-                  <button id='navbar_search_button' class='alert button expand'>Search</button>
+                  <button id='navbar_search_button' class='alert button radius expand'>Search</button>
                 </div>
               </div>
             </li>
@@ -53,12 +53,12 @@
             <% else %>
               <!-- <li class="divider">
               </li> -->
-              <li>
+              <li class="top-stuff">
                 <%= link_to "Sign up", new_user_path %>
               </li>
               <li class="divider">
               </li>
-              <li>
+              <li class="top-stuff">
                 <%= link_to "Log in", :login, {id: "login"} %>
               </li>
               <!-- <li class="divider">
@@ -68,10 +68,10 @@
 
   	      <!-- Left Nav Section -->
   	      <ul class="left">
-            <li>
+            <li class="top-stuff">
               <%= link_to "Projects", projects_path %>
             </li>
-            <li>
+            <li class="top-stuff">
               <%= link_to "Users", users_path %>
             </li>
   	      </ul>
