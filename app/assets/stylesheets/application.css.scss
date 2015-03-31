@@ -1,5 +1,6 @@
 @import "foundation_and_overrides";
 @import "foundation-icons";
+@import "home";
 @import "projects";
 @import "users";
 @import "positions";
@@ -17,16 +18,33 @@ i {
 .flash {
 	/*position: absolute;*/
 	top: 50px;
+	width: 50%;
+	margin: 5px auto;
+	padding: 20px;
 	background-color: #fff;
 	z-index: 50px;
+}
+
+.notice {
+	background-color: #a5e06d;
+	border: 1px solid #75B739;
+	border-radius: 5px;
+}
+
+.alert {
+
 }
 
 .icon-logo {
 	height: 40px; 
 	width: 40px;
 	margin: 4px;
+	margin-left: 20px;
 }
 
 .top-bar-section ul li > a:not(.button):hover {
 	color: #75B739;
+	.right {
+		margin-right: 13px;
+	}
 }

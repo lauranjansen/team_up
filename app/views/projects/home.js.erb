@@ -1,2 +1,2 @@
-$('#projects').html("<%= j(render @projects.page params[:page]) %>");
-$('#pagination').html('<%= j(paginate @projects, :remote => true) %>');
+$('#projects').html("<%= j(render @projects.page(params[:page]).per(3)) %>");
+$('#pagination').html('<%= j(paginate @projects, :remote => true, theme: "foundation") %>');

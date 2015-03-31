@@ -1,6 +1,7 @@
 .project-wrapper {
 	width: 100%;
 	margin-bottom: 20px;
+	max-height: 387px;
 }
 
 .project-card {
@@ -17,8 +18,11 @@
 }
 
 .project-image {
-	position: relative;
 	width: 100%;
+	height: 226px;
+	background-position: center;
+	overflow: hidden;
+	background-size: cover;
 }
 
 .project-info {
@@ -81,54 +85,4 @@
 
 .pagination {
 	text-align: center;
-}
-
-.panel{
-	position: relative;
-	width: 100vw;
-  left: calc(-50vw + 49.25%);
-	background-image: url("/hero.png");
-	height: 30em;
-	background-position: center top;
-	@media screen and (max-width: 640px) {
-		height: 10em;
-	}
-}
-
-.home-logo{
-	position: relative;
-	top: -2em;
-	height: 300px;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	top: 5em;
-	@media screen and (max-width: 640px) {
-		height: 200px;
-		top: -2em;
-	}
-}
-
-h3.subheader{
-	color: white;
-	font-weight: lighter;
-	display: block;
-	text-align: center;
-	margin-top: -1em;
-}
-
-.hero-button{
-	text-align: center;
-	margin-top: 2em;
-}
-
-.hero-button .button{
-	background-color: transparent;
-	border: 2px solid #F4F4F4;
-	margin-top: 2em;
-}
-
-.hero-button .button:hover{
-	background-color: white;
-	color: #75B739;
 }
