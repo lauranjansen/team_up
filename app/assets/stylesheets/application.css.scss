@@ -16,8 +16,7 @@ i {
 }
 
 .flash {
-	/*position: absolute;*/
-	top: 50px;
+	position: relative;
 	width: 50%;
 	margin: 5px auto;
 	padding: 20px;
@@ -32,7 +31,9 @@ i {
 }
 
 .alert {
-
+	background-color: red;
+	border: 1px solid #B77539;
+	border-radius: 5px;
 }
 
 .icon-logo {

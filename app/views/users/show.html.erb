@@ -1,6 +1,6 @@
 <!-- MAIN SECTION -->
 <section class="main-section margin-top">
-<div class="row">
+  <div class="row">
 
     <div class="large-4  medium-3 columns">
       <figure class="figure profile-image">
@@ -19,34 +19,40 @@
           <% end %>
         </h3>
         <h8><%= @user.location %> | <%= @user.email %> | </h8>
-          <% @user.roles.each do |role| %>
+        <% @user.roles.each do |role| %>
           <%= role.name %>, &nbsp
-          <% end %>
-          </div>
-          <hr>
+        <% end %>
+      </div>
+    
+      <hr>
 
-          <p><%= @user.bio %></p>
+      <p><%= @user.bio %></p>
 
-          <hr>
-          Owned Projects:
-          <% @user.owned_projects.each do |project| %>
-          <%= link_to project.name, project_path(project) %> &nbsp
-          <% end %>
+      <hr>
+      
+      Owned Projects:
+      <% @user.owned_projects.each do |project| %>
+        <%= link_to project.name, project_path(project) %> &nbsp
+      <% end %>
 
-          <br>
-          <hr>
-        
-          <%= render partial: 'users/skill', collection: @user.skills %>
-          
-          <br>
-          <hr>
-          Projects Contributed To:
-          <br>
-          <% @user.positions.each do |position| %>
-          <%= link_to position.project.name, project_path(position.project) %> &nbsp
-          <% end %>
-
+      <br>
+      
+      <hr>
+      
+      Projects Contributed To:
+      
+      <br>
+      
+      <% @user.positions.each do |position| %>
+        <%= link_to position.project.name, project_path(position.project) %> &nbsp
+      <% end %>
+      
+      <hr>
+    
+      <%= render partial: 'users/skill', collection: @user.skills %>
+      
+      <br>
 
     </div><!-- / COLUMN-->
-</div><!-- / ROW-->
+  </div><!-- / ROW-->
 </section><!-- / SECTION-->
