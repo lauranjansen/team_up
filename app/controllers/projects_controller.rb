@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
   def home
 
     @projects = if params[:search]
-      Project.where("name ILIKE ?", "%#{params[:search]}%").order('projects.created_at DESC').page(params[:page])
+      Project.where("name ILIKE ?", "%#{params[:search]}%").order('projects.created_at DESC').page(params[:page]).per(3)
     else     
       Project.order('projects.created_at DESC').page(params[:page])
     end
@@ -16,22 +16,15 @@ class ProjectsController < ApplicationController
   end
 
   def index
-    # filter = if params[:project_filter]
-    #   role = Role.find(params[:project_filter])
-    #   role_positions = role.positions
-    #   projects = role_positions.map { |position| Project.find(position.project_id) }
-    #   projects.uniq
-    # else
-    #   Project.all
-    # end
-
     @projects = if params[:search]
       Project.where("name ILIKE ?", "%#{params[:search]}%").order('projects.created_at DESC').page(params[:page])
+    elsif params[:project_filter]
+      role = Role.find(params[:project_filter])
+      binding.pry
+      Project.references(:positions).includes(:positions).where("role_id = ?", role).page(params[:page])
     else     
-      Project.order('projects.created_at DESC').page(params[:page]).per(6)
+      Project.order('projects.created_at DESC').page(params[:page])
     end
-
-    # @projects = filter & search
 
     respond_to do |format|
       format.html

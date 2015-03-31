@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
 	has_one :image, as: :imageable
 	has_many :positions
+  has_many :roles, through: :positions
 	belongs_to :owner, class_name: 'User'
 	has_many :position_requests, through: :positions
 
