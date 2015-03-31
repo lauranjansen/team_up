@@ -43,7 +43,7 @@
   	      <ul class="right">
   	        <% if current_user %>
               <li class="has-dropdown">
-                <a href="#"><%= image_tag(current_user.profile_picture("small_thumb"), class: "user_thumb") %><%= current_user.first_name %></a>
+                <a href="#"><%= image_tag(current_user.profile_picture("small_thumb"), class: "user-thumb") %><%= current_user.first_name %></a>
                 <ul class="dropdown">
                   <li><%= link_to "My Profile", user_path(current_user.id) %></li>
                   <li><%= link_to "Create a Project", new_project_path %></li>
