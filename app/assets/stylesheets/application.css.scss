@@ -15,6 +15,18 @@ i {
 	margin-right: 10px;
 }
 
+.button-green{
+	@include button;
+	background-color: #75B739;
+	color: white;
+}
+
+.button-green:hover{
+	background-color: transparent;
+	border: 1px solid #75B739;
+	color: #75B739;
+}
+
 .flash {
 	position: relative;
 	width: 50%;
