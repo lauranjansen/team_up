@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
     @projects = if params[:search]
       Project.where("name ILIKE ?", "%#{params[:search]}%").order('projects.created_at DESC').page(params[:page]).per(3)
     else     
-      Project.order('projects.created_at DESC').page(params[:page])
+      Project.order('projects.created_at DESC').page(params[:page]).per(3)
     end
 
     respond_to do |format|
