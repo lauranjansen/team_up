@@ -79,10 +79,9 @@ function addSkill(skill, skillId) {
 	var hiddenTagId = 'user_skills_attributes_' + skillId + '_name';
 	var hiddenTag = $('<input type="hidden">');
 	hiddenTag.attr({
-		'type': 'hidden',
 		'name': hiddenTagName,
 		'id': hiddenTagId,
-		'value': skill,
+		'value': skill
 	});
 
 	$(skillField).append(hiddenTag);
