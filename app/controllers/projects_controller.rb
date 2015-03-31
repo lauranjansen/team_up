@@ -20,14 +20,11 @@ class ProjectsController < ApplicationController
       Project.where("name ILIKE ?", "%#{params[:search]}%").order('projects.created_at DESC').page(params[:page])
     elsif params[:project_filter]
       role = Role.find(params[:project_filter])
-      # role_positions = role.positions
-      # projects = role_positions.map { |position| Project.find(position.project_id) }
-      Project.where(roles: role).page(params[:page])
+      binding.pry
+      Project.references(:positions).includes(:positions).where("role_id = ?", role).page(params[:page])
     else     
       Project.order('projects.created_at DESC').page(params[:page])
     end
-
-    # @projects = filter & search
 
     respond_to do |format|
       format.html
