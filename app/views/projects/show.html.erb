@@ -1,22 +1,6 @@
 <hr>
 
 <div class="row">
-	<div class="small-12 medium-4 columns">
-		<%= link_to "Back to Projects", projects_path, class: "button radius expand" %>
-	</div>
-	<div class="small-12 medium-4 columns">
-		<% if current_user == @project.owner %>
-			<%= link_to "Edit this Project", edit_project_path, class: "button radius expand" %>
-	</div>
-	<div class="small-12 medium-4 columns">
-			<%= link_to "Delete this Project", project_path, method: :delete, class: "button radius alert right expand" %>
-		<% end %>
-	</div>
-</div>
-
-<hr>
-
-<div class="row">
 	<div class="small-12 medium-6 columns">
 	  <figure class="figure">
 	    <%= image_tag(@project.project_picture) %>
@@ -62,4 +46,20 @@
 <h2>Open Positions</h2>
 <div class="row">
 	<%= render partial: 'position', collection: @project.positions %>
+</div>
+
+<hr>
+
+<div class="row">
+	<div class="small-12 medium-4 columns">
+		<%= link_to "Back to Projects", projects_path, class: "button radius expand" %>
+	</div>
+	<div class="small-12 medium-4 columns">
+		<% if current_user == @project.owner %>
+			<%= link_to "Edit this Project", edit_project_path, class: "button radius expand" %>
+	</div>
+	<div class="small-12 medium-4 columns">
+			<%= link_to "Delete this Project", project_path, method: :delete, class: "button radius alert right expand" %>
+		<% end %>
+	</div>
 </div>
