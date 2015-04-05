@@ -20,7 +20,6 @@ class ProjectsController < ApplicationController
       Project.where("name ILIKE ?", "%#{params[:search]}%").order('projects.created_at DESC').page(params[:page])
     elsif params[:project_filter]
       role = Role.find(params[:project_filter])
-      binding.pry
       Project.references(:positions).includes(:positions).where("role_id = ?", role).page(params[:page])
     else     
       Project.order('projects.created_at DESC').page(params[:page])
